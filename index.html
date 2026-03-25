@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go N' Wander — The World's Hottest Latin Party | Labor Day 2027</title>
+  <meta name="description" content="5 nights on Norwegian Luna. New York to Bermuda. Open bar included. Salsa, Bachata, Reggaeton. Book your cabin now.">
+  <meta property="og:title" content="The World's Hottest Latin Party — Labor Day 2027">
+  <meta property="og:description" content="5 nights on Norwegian Luna. New York → Bermuda. Open bar included. Salsa, Bachata, Reggaeton. Book your cabin now.">
+  <meta property="og:image" content="placeholder.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       GNW LATIN CRUISE — BRIGHT TROPICAL V4
+       THEME: Caribbean Beach Party / Ibiza Resort
+       ========================================= */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-white: #FFFFFF;
+      --bg-cream: #FFF8EE;
+      --bg-ocean-tint: #EBF8FF;
+      --bg-navy: #0D1B2A;
+      --turquoise: #00B4D8;
+      --coral: #FF5A5F;
+      --gold: #FFD166;
+      --orange: #FF9A3C;
+      --ocean-deep: #0077B6;
+      --white: #FFFFFF;
+      --body-dark: #1A1A2E;
+      --body-mid: #374151;
+      --light-gray: #6B7280;
+      --card-bg: #FFFFFF;
+      --card-border: #FFD580;
+      --cta-gradient: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 100%);
+      --hero-gradient: linear-gradient(135deg, #0077B6 0%, #00B4D8 40%, #48CAE4 100%);
+      --music-gradient: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 60%, #FFD166 100%);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-white);
+      color: var(--body-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Labels */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 16px;
+    }
+
+    .section-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--bg-navy);
+    }
+
+    .section-subheadline {
+      font-size: 18px;
+      color: var(--body-mid);
+      max-width: 600px;
+    }
+
+    /* Gradient Text (used in hero / dark sections) */
+    .gold-text {
+      background: linear-gradient(135deg, #FFD166, #FF9A3C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* CTA Buttons */
+    .cta-gold {
+      display: inline-block;
+      background: var(--cta-gradient);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      padding: 18px 48px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      box-shadow: 0 4px 24px rgba(255, 90, 95, 0.35);
+    }
+
+    .cta-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255, 90, 95, 0.5);
+      filter: brightness(1.08);
+    }
+
+    .cta-dark {
+      display: inline-block;
+      background: var(--turquoise);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cta-dark:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);
+    }
+
+    /* =========================================
+       1. STICKY NAVIGATION
+       ========================================= */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #FFFFFF;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--gold);
+      padding: 0 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--ocean-deep);
+      text-decoration: none;
+    }
+
+    .nav-event {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--body-mid);
+      text-transform: uppercase;
+      border-left: 1px solid rgba(0,0,0,0.15);
+      padding-left: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--body-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--coral);
+    }
+
+    .nav-cta {
+      background: var(--cta-gradient) !important;
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta:hover {
+      color: #fff !important;
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-event { display: none; }
+    }
+
+    /* =========================================
+       2. HERO SECTION
+       ========================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      background: var(--hero-gradient);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Tropical shimmer particles */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,209,102,0.5), transparent),
+        radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 80% 60%, rgba(255,209,102,0.4), transparent),
+        radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 50% 10%, rgba(255,209,102,0.35), transparent),
+        radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.2), transparent);
+      background-size: 550px 550px;
+      animation: sparkle 8s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(-30px); opacity: 1; }
+    }
+
+    /* Ocean glow behind headline */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,119,182,0.04) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 4px;
+      color: var(--coral);
+      background: #FFFFFF;
+      border: 2px solid var(--coral);
+      border-radius: 50px;
+      padding: 10px 32px;
+      margin-bottom: 40px;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 12px rgba(255,90,95,0.2); }
+      50% { box-shadow: 0 0 28px rgba(255,90,95,0.45); }
+    }
+
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.0;
+      margin-bottom: 32px;
+      max-width: 900px;
+      color: #FFFFFF;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+    }
+
+    .hero-cta-wrap {
+      margin-bottom: 12px;
+    }
+
+    .hero-fine-print {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 48px;
+    }
+
+    /* Countdown */
+    .countdown-section {
+      margin-bottom: 48px;
+    }
+
+    .countdown-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .countdown-block {
+      background: var(--ocean-deep);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 16px 20px;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .countdown-unit {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .trust-bar span {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .countdown-block { min-width: 64px; padding: 12px 14px; }
+      .countdown-num { font-size: 32px; }
+      .countdown { gap: 10px; }
+      .trust-bar { gap: 12px; font-size: 13px; }
+    }
+
+    /* =========================================
+       3. THE HOOK
+       ========================================= */
+    .hook {
+      padding: 100px 24px;
+      background: var(--bg-cream);
+    }
+
+    .hook-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hook-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      color: var(--bg-navy);
+    }
+
+    .hook-text p {
+      font-size: 17px;
+      color: var(--body-mid);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .hook-text .italic-accent {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--coral);
+      font-size: 20px;
+    }
+
+    .hook-image {
+      background: linear-gradient(135deg, #EBF8FF, #DBEAFE);
+      border: 2px solid var(--card-border);
+      border-radius: 12px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-gray);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hook-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(255,90,95,0.06), transparent 60%),
+                  radial-gradient(circle at 70% 30%, rgba(0,180,216,0.08), transparent 50%);
+    }
+
+    @media (max-width: 768px) {
+      .hook-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hook-image { height: 300px; }
+    }
+
+    /* =========================================
+       4. WHAT'S INCLUDED
+       ========================================= */
+    .included {
+      padding: 100px 24px;
+      background: var(--bg-white);
+    }
+
+    .included-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+
+    .included-card {
+      background: var(--card-bg);
+      border: 1px solid #E5E7EB;
+      border-top: 3px solid var(--turquoise);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .included-card:hover {
+      border-color: var(--turquoise);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,180,216,0.15);
+    }
+
+    .included-card .icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .included-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--bg-navy);
+    }
+
+    .included-card p {
+      font-size: 15px;
+      color: var(--body-mid);
+      line-height: 1.6;
+    }
+
+    .included-highlight {
+      background: linear-gradient(135deg, rgba(0,180,216,0.08), rgba(255,209,102,0.1));
+      border: 1px solid rgba(0,180,216,0.25);
+      border-radius: 8px;
+      padding: 20px 32px;
+      text-align: center;
+      font-size: 15px;
+      color: var(--ocean-deep);
+      max-width: 1200px;
+      margin: 0 auto;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .included-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .included-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================
+       5. THE SHIP
+       ========================================= */
+    .ship {
+      padding: 100px 24px;
+      background: var(--bg-ocean-tint);
+    }
+
+    .ship-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ship-content {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .ship-content p {
+      font-size: 17px;
+      color: var(--body-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .ship-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .ship-stat {
+      background: var(--cta-gradient);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .ship-stat .stat-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .ship-stat .stat-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+    }
+
+    .ship-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .ship-img-placeholder {
+      background: linear-gradient(135deg, #DBEAFE, #EBF8FF);
+      border: 2px solid var(--card-border);
+      border-radius: 12px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-gray);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .ship-stats { grid-template-columns: repeat(2, 1fr); }
+      .ship-images { grid-template-columns: 1fr; }
+      .ship-img-placeholder { height: 180px; }
+    }
+
+    /* =========================================
+       6. ITINERARY
+       ========================================= */
+    .itinerary {
+      padding: 100px 24px;
+      background: var(--bg-cream);
+    }
+
+    .itinerary-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .itinerary-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .itinerary-item {
+      display: flex;
+      gap: 32px;
+      padding: 28px 24px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Alternating left border: coral / turquoise */
+    .itinerary-item:nth-child(odd) {
+      border-left: 4px solid var(--coral);
+    }
+
+    .itinerary-item:nth-child(even) {
+      border-left: 4px solid var(--turquoise);
+    }
+
+    .itinerary-item:last-child {
+      border-bottom: none;
+    }
+
+    .itinerary-day {
+      flex-shrink: 0;
+      width: 120px;
+    }
+
+    .itinerary-day .day-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--coral);
+      letter-spacing: 1px;
+    }
+
+    .itinerary-day .day-date {
+      font-size: 13px;
+      color: var(--light-gray);
+    }
+
+    .itinerary-detail h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--bg-navy);
+    }
+
+    .itinerary-detail p {
+      font-size: 15px;
+      color: var(--body-mid);
+      line-height: 1.6;
+    }
+
+    .itinerary-note {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 17px;
+      color: var(--body-mid);
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .itinerary-item { flex-direction: column; gap: 8px; }
+      .itinerary-day { width: auto; }
+    }
+
+    /* =========================================
+       7. MUSIC
+       ========================================= */
+    .music {
+      padding: 100px 24px;
+      background: var(--music-gradient);
+    }
+
+    .music-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .music-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .music-header .section-label {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .music-header .section-headline {
+      color: #FFFFFF;
+    }
+
+    .music-header .section-subheadline {
+      margin: 0 auto;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .genre-pills {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 64px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .genre-pills::-webkit-scrollbar { display: none; }
+
+    .genre-pill {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 12px;
+      padding: 20px 28px;
+      min-width: 180px;
+      transition: border-color 0.3s, background 0.3s;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    .genre-pill:hover {
+      border-color: var(--coral);
+      background: rgba(255,90,95,0.25);
+    }
+
+    .genre-pill .pill-icon {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .genre-pill .pill-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      color: #FFFFFF;
+    }
+
+    .genre-pill .pill-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .instructor-card {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .instructor-photo {
+      height: 220px;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+    }
+
+    .instructor-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .instructor-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: #FFFFFF;
+    }
+
+    .instructor-info p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .music-note {
+      text-align: center;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    @media (max-width: 768px) {
+      .instructor-grid { grid-template-columns: 1fr; }
+      .instructor-photo { height: 180px; }
+    }
+
+    /* =========================================
+       8. PRICING
+       ========================================= */
+    .pricing {
+      padding: 100px 24px;
+      background: var(--bg-cream);
+    }
+
+    .pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .urgency-bar {
+      background: linear-gradient(135deg, rgba(255,90,95,0.1), rgba(255,154,60,0.1));
+      border: 1px solid rgba(255,90,95,0.35);
+      border-radius: 8px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--coral);
+      margin-bottom: 48px;
+      letter-spacing: 1px;
+    }
+
+    .urgency-bar .mini-countdown {
+      color: var(--bg-navy);
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid #E5E7EB;
+      border-radius: 16px;
+      padding: 40px 32px;
+      position: relative;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    /* Inside cabin — turquoise border */
+    .pricing-card:not(.featured) {
+      border: 2px solid var(--turquoise);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--coral);
+      box-shadow: 0 8px 40px rgba(255,90,95,0.25);
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .badge-silver {
+      background: rgba(0,180,216,0.12);
+      color: var(--turquoise);
+      border: 1px solid rgba(0,180,216,0.3);
+    }
+
+    .badge-gold {
+      background: var(--cta-gradient);
+      color: #fff;
+    }
+
+    .pricing-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: var(--bg-navy);
+    }
+
+    .pricing-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--body-dark);
+    }
+
+    .pricing-card.featured .pricing-price {
+      color: var(--coral);
+    }
+
+    .pricing-card:not(.featured) .pricing-price {
+      color: var(--turquoise);
+    }
+
+    .pricing-per {
+      font-size: 14px;
+      color: var(--light-gray);
+      margin-bottom: 24px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pricing-list li {
+      font-size: 15px;
+      color: var(--body-mid);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pricing-list li::before {
+      content: '✓';
+      color: var(--coral);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-card .cta-gold {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+
+    .pricing-card .cta-dark {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+
+    .pricing-deposit {
+      text-align: center;
+      font-size: 13px;
+      color: var(--light-gray);
+      margin-top: 16px;
+    }
+
+    .pay-full {
+      background: linear-gradient(135deg, rgba(0,180,216,0.07), rgba(255,209,102,0.08));
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .pay-full p {
+      font-size: 16px;
+      color: var(--body-mid);
+      line-height: 1.7;
+    }
+
+    .pay-full strong {
+      color: var(--turquoise);
+    }
+
+    .checkout-details {
+      display: grid;
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .checkout-details p {
+      font-size: 14px;
+      color: var(--light-gray);
+    }
+
+    @media (max-width: 768px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================
+       9. SOCIAL PROOF
+       ========================================= */
+    .social-proof {
+      padding: 100px 24px;
+      background: var(--bg-white);
+    }
+
+    .social-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .booking-counter {
+      background: linear-gradient(135deg, rgba(255,90,95,0.08), rgba(255,154,60,0.06));
+      border: 1px solid rgba(255,90,95,0.25);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 48px;
+      display: inline-block;
+    }
+
+    .booking-counter .counter-fire {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .booking-counter .counter-text {
+      font-size: 16px;
+      color: var(--body-mid);
+    }
+
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 12px;
+      color: var(--bg-navy);
+    }
+
+    .testimonial-attr {
+      font-size: 14px;
+      color: var(--coral);
+      margin-bottom: 64px;
+    }
+
+    .social-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .social-tile {
+      background: var(--bg-cream);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-gray);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .social-follow {
+      font-size: 15px;
+      color: var(--body-mid);
+    }
+
+    .social-follow a {
+      color: var(--coral);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .social-tiles { grid-template-columns: 1fr; }
+      .social-tile { height: 150px; }
+    }
+
+    /* =========================================
+       10. FAQ
+       ========================================= */
+    .faq {
+      padding: 100px 24px;
+      background: var(--bg-cream);
+    }
+
+    .faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--bg-navy);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: left;
+      padding: 24px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question:hover {
+      color: var(--coral);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--coral);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--coral);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--coral);
+      color: var(--coral);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 24px;
+      font-size: 15px;
+      color: var(--body-mid);
+      line-height: 1.7;
+      background: #FFF3E0;
+      border-top: 1px solid rgba(255,90,95,0.1);
+    }
+
+    /* =========================================
+       11. FINAL CTA
+       ========================================= */
+    .final-cta {
+      padding: 120px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, rgba(255,209,102,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1;
+      margin-bottom: 24px;
+      color: #FFFFFF;
+    }
+
+    .final-cta-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.9);
+      max-width: 550px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .final-cta-sub strong {
+      color: var(--white);
+    }
+
+    .final-cta .cta-gold {
+      font-size: 26px;
+      padding: 22px 64px;
+      background: #FFFFFF;
+      color: var(--coral);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    }
+
+    .final-cta .cta-gold:hover {
+      background: #FFFFFF;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.2);
+      filter: none;
+      transform: translateY(-2px);
+    }
+
+    .final-fine {
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* =========================================
+       12. FOOTER
+       ========================================= */
+    .footer {
+      padding: 64px 24px 120px;
+      background: var(--bg-navy);
+      border-top: none;
+    }
+
+    @media (min-width: 769px) {
+      .footer { padding-bottom: 64px; }
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer-contact {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+
+    .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-espanol {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--coral);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .footer-social a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--coral); }
+
+    .footer-legal {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+
+    .footer-legal a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       13. MOBILE STICKY BAR
+       ========================================= */
+    .mobile-sticky {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-sticky {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #FFFFFF;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 2px solid var(--gold);
+        padding: 12px 16px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      }
+
+      .mobile-sticky-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--bg-navy);
+      }
+
+      .mobile-sticky .cta-gold {
+        font-size: 16px;
+        padding: 12px 24px;
+        flex-shrink: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== 1. STICKY NAVIGATION ====== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="#" class="nav-logo">GO N' WANDER</a>
+        <span class="nav-event">THE LATIN CRUISE</span>
+      </div>
+      <div class="nav-links">
+        <a href="#included">What's Included</a>
+        <a href="#pricing">Cabins</a>
+        <a href="#booking" class="nav-cta">BOOK NOW</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== 2. HERO SECTION ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-badge">LABOR DAY WEEKEND 2027</div>
+
+    <h1 class="hero-headline">
+      The World's <span class="gold-text">Hottest</span><br>
+      Latin Party.<br>
+      On The World's<br>
+      <span class="gold-text">Newest</span> Ship.
+    </h1>
+
+    <p class="hero-sub">
+      <strong>5 nights on Norwegian Luna</strong> — NCL's brand new flagship.<br>
+      New York &rarr; Bermuda &rarr; New York.<br>
+      Open bar included. No flights needed.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="#booking" class="cta-gold">LOCK IN MY SPOT &rarr;</a>
+    </div>
+    <p class="hero-fine-print">&rlm;&#9889; Early Bird Pricing &middot; Only 50 Cabins Available &middot; Non-Refundable Deposit</p>
+
+    <div class="countdown-section">
+      <div class="countdown-label">Early Bird Pricing Ends In</div>
+      <div class="countdown" id="hero-countdown">
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-unit">DAYS</div>
+        </div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-unit">HRS</div>
+        </div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-mins">--</div>
+          <div class="countdown-unit">MIN</div>
+        </div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-secs">--</div>
+          <div class="countdown-unit">SEC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-bar">
+      <span>&#x1F6F3;&#xFE0F; Norwegian Cruise Line</span>
+      <span>&#9992;&#xFE0F; No Flights Needed</span>
+      <span>&#127865; Open Bar Included</span>
+      <span>&#128131; Salsa &middot; Bachata &middot; Reggaeton</span>
+    </div>
+  </section>
+
+  <!-- ====== 3. THE HOOK ====== -->
+  <section class="hook">
+    <div class="hook-inner">
+      <div class="hook-text">
+        <h2>You've Done Beach Trips.<br>You've Done Resorts.<br><span class="gold-text">This Is Different.</span></h2>
+        <p>This isn't a cruise that happens to have Latin music.</p>
+        <p>This is the world's biggest Latin party — built from the ground up for the Latin community — sailing from New York City on Labor Day 2027.</p>
+        <p><strong style="color:#0D1B2A">Norwegian Luna. Launched 2026.</strong> The newest ship on the ocean.<br>
+        Glow Court LED nightclub. 17 restaurants. 18 bars.<br>
+        And 100 of your people.</p>
+        <p>Salsa. Bachata. Reggaeton. Merengue. Cumbia.<br>
+        <span class="italic-accent">Every night hits different.</span></p>
+        <p>You don't need to know how to dance.<br>
+        You just need to want to feel alive.</p>
+      </div>
+      <div class="hook-image">
+        <span>Atmospheric Visual &middot; Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 4. WHAT'S INCLUDED ====== -->
+  <section class="included" id="included">
+    <div class="included-header">
+      <div class="section-label">EVERYTHING INCLUDED</div>
+      <h2 class="section-headline">No Add-Ons. No Surprises.<br>No Nickel-and-Diming.</h2>
+    </div>
+
+    <div class="included-grid">
+      <div class="included-card">
+        <span class="icon">&#127865;</span>
+        <h3>Open Bar. All 5 Nights.</h3>
+        <p>Unlimited drinks for guests 21+. No bar tab. It's included.</p>
+      </div>
+      <div class="included-card">
+        <span class="icon">&#127869;</span>
+        <h3>All Meals Included</h3>
+        <p>Every breakfast, lunch, dinner — plus 2 specialty restaurant experiences.</p>
+      </div>
+      <div class="included-card">
+        <span class="icon">&#128131;</span>
+        <h3>Dance Workshops</h3>
+        <p>Featured salsa + bachata instructors on board. All levels welcome.</p>
+      </div>
+      <div class="included-card">
+        <span class="icon">&#127911;</span>
+        <h3>DJ Nights Every Night</h3>
+        <p>Latin DJs from sundown to sunrise. Salsa. Reggaeton. Bachata.</p>
+      </div>
+      <div class="included-card">
+        <span class="icon">&#127958;</span>
+        <h3>Bermuda Port Day</h3>
+        <p>Pink sand beaches. Crystal water. $50 excursion credit included.</p>
+      </div>
+      <div class="included-card">
+        <span class="icon">&#128246;</span>
+        <h3>Wi-Fi Included</h3>
+        <p>150 minutes per person. Stay connected when you want.</p>
+      </div>
+    </div>
+
+    <div class="included-highlight">
+      &#11088; Norwegian Luna — Brand New 2026 — Aqua Slidecoaster &middot; Glow Court LED Arena &middot; 17 Restaurants &middot; 18 Bars
+    </div>
+  </section>
+
+  <!-- ====== 5. THE SHIP ====== -->
+  <section class="ship" id="ship">
+    <div class="ship-inner">
+      <div class="section-label">THE SHIP</div>
+      <h2 class="section-headline">Not Just Any Ship.<br><span class="gold-text">The Newest Ship In The World.</span></h2>
+
+      <div class="ship-content">
+        <p>Our competition sails on ships from 2004.<br>We sail on <strong style="color:#0D1B2A">Norwegian Luna — launched 2026.</strong></p>
+        <p>The Glow Court is a 10,000 sq ft LED arena by day.<br>The hottest dance floor at sea by night.</p>
+        <p>Imagine 100 of your people dancing salsa under those lights in the middle of the Atlantic Ocean.</p>
+        <p style="color:#6B7280">3,565 guests &middot; 17 restaurants &middot; 18 bars &middot; Aqua Slidecoaster &middot; Glow Court</p>
+      </div>
+
+      <div class="ship-stats">
+        <div class="ship-stat">
+          <span class="stat-icon">&#x1F6F3;&#xFE0F;</span>
+          <span class="stat-text">Launched 2026</span>
+        </div>
+        <div class="ship-stat">
+          <span class="stat-icon">&#127869;</span>
+          <span class="stat-text">17 Restaurants</span>
+        </div>
+        <div class="ship-stat">
+          <span class="stat-icon">&#127864;</span>
+          <span class="stat-text">18 Bars</span>
+        </div>
+        <div class="ship-stat">
+          <span class="stat-icon">&#10024;</span>
+          <span class="stat-text">Glow Court LED Arena</span>
+        </div>
+      </div>
+
+      <div class="ship-images">
+        <div class="ship-img-placeholder">Norwegian Luna — Photo Coming Soon</div>
+        <div class="ship-img-placeholder">Norwegian Luna — Photo Coming Soon</div>
+        <div class="ship-img-placeholder">Norwegian Luna — Photo Coming Soon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 6. ITINERARY ====== -->
+  <section class="itinerary" id="itinerary">
+    <div class="itinerary-inner">
+      <div class="itinerary-header">
+        <div class="section-label">THE JOURNEY</div>
+        <h2 class="section-headline">5 Nights You Won't Forget</h2>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">SAT AUG 28</div>
+          <div class="day-date">Day 1</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>New York City</h3>
+          <p>Board Norwegian Luna. Welcome party. DJ night. It starts NOW.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">SUN AUG 29</div>
+          <div class="day-date">Day 2</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>At Sea</h3>
+          <p>Dance workshops in the morning. Pool deck all afternoon. Party all night.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">MON AUG 30</div>
+          <div class="day-date">Day 3</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>Bermuda, Royal Naval Dockyard</h3>
+          <p>Pink sand beaches. $50 excursion credit included. Bermuda Night Party back on ship.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">TUE AUG 31</div>
+          <div class="day-date">Day 4</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>At Sea</h3>
+          <p>Bachata masterclass. Specialty dining. Closing night concert.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">WED SEPT 1</div>
+          <div class="day-date">Day 5</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>At Sea</h3>
+          <p>Final sea day. Recover. Relive. Say goodbye to new friends.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-item">
+        <div class="itinerary-day">
+          <div class="day-label">THU SEPT 2</div>
+          <div class="day-date">Day 6</div>
+        </div>
+        <div class="itinerary-detail">
+          <h3>New York City</h3>
+          <p>Back home. Changed forever.</p>
+        </div>
+      </div>
+
+      <p class="itinerary-note">No flights. No connections. Just show up to the pier in New York City.</p>
+    </div>
+  </section>
+
+  <!-- ====== 7. MUSIC ====== -->
+  <section class="music" id="music">
+    <div class="music-inner">
+      <div class="music-header">
+        <div class="section-label">THE MUSIC</div>
+        <h2 class="section-headline">Every Night Hits Different</h2>
+        <p class="section-subheadline">Salsa &middot; Bachata &middot; Reggaeton &middot; Merengue &middot; Cumbia</p>
+      </div>
+
+      <div class="genre-pills">
+        <div class="genre-pill">
+          <span class="pill-icon">&#128131;</span>
+          <div class="pill-name">SALSA</div>
+          <div class="pill-desc">DJ sets + live workshops</div>
+        </div>
+        <div class="genre-pill">
+          <span class="pill-icon">&#128293;</span>
+          <div class="pill-name">BACHATA</div>
+          <div class="pill-desc">Social dancing + instructor workshops</div>
+        </div>
+        <div class="genre-pill">
+          <span class="pill-icon">&#127908;</span>
+          <div class="pill-name">REGGAETON</div>
+          <div class="pill-desc">Late night energy</div>
+        </div>
+        <div class="genre-pill">
+          <span class="pill-icon">&#129345;</span>
+          <div class="pill-name">MERENGUE</div>
+          <div class="pill-desc">Theme night</div>
+        </div>
+        <div class="genre-pill">
+          <span class="pill-icon">&#127754;</span>
+          <div class="pill-name">CUMBIA</div>
+          <div class="pill-desc">Because we rep everyone</div>
+        </div>
+      </div>
+
+      <div class="instructor-grid">
+        <div class="instructor-card">
+          <div class="instructor-photo">Photo Coming Soon</div>
+          <div class="instructor-info">
+            <h3>Featured Instructor</h3>
+            <p>Salsa &middot; Coming Soon</p>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-photo">Photo Coming Soon</div>
+          <div class="instructor-info">
+            <h3>Featured Instructor</h3>
+            <p>Bachata &middot; Coming Soon</p>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-photo">Photo Coming Soon</div>
+          <div class="instructor-info">
+            <h3>Featured Instructor</h3>
+            <p>Announcing Soon</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="music-note">Full lineup dropping soon. Follow <a href="#" style="color:#FFFFFF;font-weight:700;text-decoration:none;">@gonwander</a> for announcements.</p>
+    </div>
+  </section>
+
+  <!-- ====== 8. PRICING ====== -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-header">
+        <div class="section-label">CHOOSE YOUR EXPERIENCE</div>
+      </div>
+
+      <div class="urgency-bar" id="booking">
+        &#128293; EARLY BIRD PRICING ENDS JUNE 1, 2027 — <span class="mini-countdown" id="mini-countdown"></span> — Limited Cabins
+      </div>
+
+      <div class="pricing-cards">
+        <!-- INSIDE CABIN -->
+        <div class="pricing-card">
+          <span class="pricing-badge badge-silver">BEST VALUE</span>
+          <h3>Interior Cabin</h3>
+          <p style="font-size:14px;color:#6B7280;margin-bottom:20px;">Double Occupancy</p>
+          <div class="pricing-price">$1,375</div>
+          <div class="pricing-per">/person &middot; starting price</div>
+          <ul class="pricing-list">
+            <li>Open bar all 5 nights</li>
+            <li>All meals + 2 specialty dining</li>
+            <li>Wi-Fi 150 min</li>
+            <li>$50 excursion credit</li>
+            <li>All GNW events + workshops</li>
+          </ul>
+          <a href="#booking" class="cta-dark">BOOK MY INSIDE CABIN &rarr;</a>
+          <p class="pricing-deposit">Starting deposit: $300/person &middot; Payment plan available</p>
+        </div>
+
+        <!-- BALCONY CABIN -->
+        <div class="pricing-card featured">
+          <span class="pricing-badge badge-gold">&#11088; MOST POPULAR</span>
+          <h3>Balcony Cabin</h3>
+          <p style="font-size:14px;color:#6B7280;margin-bottom:20px;">Double Occupancy</p>
+          <div class="pricing-price">$1,586</div>
+          <div class="pricing-per">/person &middot; starting price</div>
+          <ul class="pricing-list">
+            <li>Open bar all 5 nights</li>
+            <li>All meals + 2 specialty dining</li>
+            <li>Wi-Fi 150 min</li>
+            <li>$50 excursion credit</li>
+            <li>All GNW events + workshops</li>
+            <li>Private balcony</li>
+            <li>Ocean views</li>
+            <li>Premium deck location</li>
+          </ul>
+          <a href="#booking" class="cta-gold">BOOK MY BALCONY &rarr;</a>
+          <p class="pricing-deposit">Starting deposit: $300/person &middot; Payment plan available</p>
+        </div>
+      </div>
+
+      <div class="pay-full">
+        <p>&#128176; <strong>Save when you pay in full at booking.</strong><br>
+        Pay in full = priority cabin selection + first merch drop included.</p>
+      </div>
+
+      <div class="checkout-details">
+        <p>&#128179; Secure checkout &middot; Stripe &middot; All major cards</p>
+        <p>&#128203; Monthly payment plan available — final payment due 90 days before sailing</p>
+        <p>&#128737;&#65039; Travel insurance strongly recommended — all payments are non-refundable</p>
+        <p>&#9888;&#65039; A 3% payment processing fee is applied at checkout</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 9. SOCIAL PROOF ====== -->
+  <section class="social-proof" id="social">
+    <div class="social-inner">
+      <div class="section-label">THE CREW IS GROWING</div>
+      <h2 class="section-headline">100 People. 5 Nights. 1 Ship.</h2>
+
+      <div class="booking-counter">
+        <div class="counter-fire">&#128293; Cabins Filling Fast</div>
+        <div class="counter-text">Be among the first 100.</div>
+      </div>
+
+      <p class="testimonial-quote">"I've been to salsa events all over the world. Nothing like this has ever been done from New York."</p>
+      <p class="testimonial-attr">— Featured Instructor [Name TBD]</p>
+
+      <div class="social-tiles">
+        <div class="social-tile">Instagram Post Coming Soon</div>
+        <div class="social-tile">Instagram Post Coming Soon</div>
+        <div class="social-tile">Instagram Post Coming Soon</div>
+      </div>
+
+      <p class="social-follow">Follow the journey &rarr; <a href="#">@gonwander</a></p>
+    </div>
+  </section>
+
+  <!-- ====== 10. FAQ ====== -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <div class="section-label">GOT QUESTIONS?</div>
+        <h2 class="section-headline">We Got You.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do I need to know how to dance?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Not at all. Workshops are all levels. DJ nights are for everyone. Come ready to have fun.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is the open bar really included?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Unlimited drinks for guests 21+. No bar tab. No drink package to buy. It's all in.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What if I want to go alone?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Solo travelers are welcome. Book solo or we can help match you with another solo traveler to share a cabin and split the cost.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I do a payment plan?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. $300/person deposit today locks your cabin. Pay monthly until 90 days before sailing (May 29, 2027).</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What's your cancellation policy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">All payments including deposits are non-refundable. No exceptions. Travel insurance is strongly recommended.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I transfer my reservation?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Name transfers allowed. Email us with the new guest's information.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What port do we leave from?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Manhattan Cruise Terminal, New York City. No flights needed.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What's included in specialty dining?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">2 specialty dining experiences per person (Cagney's Steakhouse, Teppanyaki, etc. — subject to availability).</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I upgrade my cabin after booking?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, upgrades available while inventory lasts. Email us to upgrade.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is this affiliated with Norwegian Cruise Line?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Go N' Wander is an independent travel organizer. We have secured a group block aboard Norwegian Luna. Norwegian Cruise Line operates the ship.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 11. FINAL CTA ====== -->
+  <section class="final-cta">
+    <h2>This Is Your Sign.</h2>
+    <p class="final-cta-sub">
+      <strong>Labor Day 2027. New York &rarr; Bermuda.</strong><br>
+      The world's newest ship. Open bar. Live DJs. Your people.<br><br>
+      Don't watch from the shore.
+    </p>
+    <a href="#booking" class="cta-gold">LOCK IN MY SPOT NOW &rarr;</a>
+    <p class="final-fine">&#9200; Early Bird pricing ends June 1, 2027 &middot; &#x1F6F3;&#xFE0F; Only 50 cabins available</p>
+  </section>
+
+  <!-- ====== 12. FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">GO N' WANDER</div>
+      <p class="footer-contact"><a href="mailto:reservations@gonwander.com">reservations@gonwander.com</a></p>
+      <p class="footer-espanol">S&iacute; hablamos Espa&ntilde;ol</p>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Facebook</a>
+      </div>
+      <p class="footer-legal">
+        <a href="#">Terms &amp; Conditions</a> &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Cancellation Policy</a>
+      </p>
+      <p class="footer-copy">&copy; 2027 Go N' Wander, LLC. All rights reserved.<br>Norwegian Luna is operated by Norwegian Cruise Line.</p>
+    </div>
+  </footer>
+
+  <!-- ====== 13. MOBILE STICKY BAR ====== -->
+  <div class="mobile-sticky">
+    <span class="mobile-sticky-text">&#127881; Only 50 Cabins</span>
+    <a href="#booking" class="cta-gold">BOOK NOW &rarr;</a>
+  </div>
+
+  <!-- ====== JAVASCRIPT ====== -->
+  <script>
+    // Countdown Timer — June 1, 2027 00:00:00 EST
+    (function() {
+      var endDate = new Date('2027-06-01T00:00:00-05:00').getTime();
+
+      function updateCountdown() {
+        var now = Date.now();
+        var diff = endDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          document.getElementById('mini-countdown').textContent = 'ENDED';
+          return;
+        }
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('cd-hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('cd-mins').textContent = mins.toString().padStart(2, '0');
+        document.getElementById('cd-secs').textContent = secs.toString().padStart(2, '0');
+
+        // Mini countdown in urgency bar
+        document.getElementById('mini-countdown').textContent = days + 'd ' + hours + 'h ' + mins + 'm ' + secs + 's';
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+    // FAQ Accordion
+    (function() {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', function() {
+          var isOpen = item.classList.contains('open');
+
+          // Close all
+          items.forEach(function(i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          // Open clicked (if it was closed)
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
