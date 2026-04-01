@@ -434,6 +434,8 @@
       .countdown-num { font-size: 32px; }
       .countdown { gap: 10px; }
       .trust-bar { gap: 12px; font-size: 13px; }
+      .hero { padding: 80px 20px 50px; }
+      .hero-headline { font-size: clamp(36px, 11vw, 64px); }
     }
 
     /* =========================================
@@ -666,7 +668,8 @@
 
     @media (max-width: 768px) {
       .ship-stats { grid-template-columns: repeat(2, 1fr); }
-      .ship-images { grid-template-columns: 1fr; }
+      .ship-images { grid-template-columns: 1fr; gap: 12px; }
+      .ship-images img { height: 200px !important; }
       .ship-img-placeholder { height: 180px; }
     }
 
@@ -1360,7 +1363,22 @@
 
     @media (max-width: 768px) {
       .payment-policy { grid-template-columns: 1fr; }
-      .pricing-card { width: 260px; }
+      .pricing-scroll-row {
+        flex-direction: column;
+        align-items: stretch;
+        overflow: visible;
+        padding: 0 0 16px;
+        gap: 20px;
+      }
+      .pricing-card {
+        width: 100% !important;
+        max-width: 420px;
+        margin: 0 auto;
+        transform: none !important;
+      }
+      .pricing-card.card-balcony {
+        order: -1;
+      }
     }
 
     /* =========================================
@@ -2598,7 +2616,15 @@
           <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Single Occupancy (Interior or Balcony)</p>
           <div class="pricing-price">Price on Request</div>
           <div class="pricing-per">&nbsp;</div>
-          <p class="solo-note">Traveling alone? We'll match you with a roommate or quote you a single supplement. Email us and we'll get you sorted.</p>
+          <ul class="pricing-list">
+            <li>All onboard GNW events</li>
+            <li>Dance workshops</li>
+            <li>5 nights accommodations</li>
+            <li>All meals included</li>
+            <li>Open bar (Norwegian Group Package A)</li>
+            <li>Private Facebook group access</li>
+          </ul>
+          <p class="solo-note">Traveling solo? We&#39;ll match you with a roommate or quote a single supplement. Just email us.</p>
           <a href="mailto:reservations@gonwander.com" class="cta-dark" data-cta>EMAIL US &rarr;</a>
           <p class="pricing-deposit">Cabin matching available &middot; Single supplement quoted on request</p>
         </div>
