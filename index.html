@@ -1421,6 +1421,58 @@
       margin-bottom: 32px;
     }
 
+    /* Testimonial grid */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    .tcard {
+      background: var(--bg-cream);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tcard-highlight {
+      background: linear-gradient(135deg, rgba(255,200,60,0.12), rgba(255,154,60,0.08));
+      border: 1px solid rgba(255,200,60,0.35);
+    }
+
+    .tcard-stars {
+      color: #F5A623;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .tcard-quote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--bg-navy);
+      flex: 1;
+    }
+
+    .tcard-attr {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--coral);
+    }
+
     .social-tile {
       background: var(--bg-cream);
       border: 1px solid var(--card-border);
@@ -2593,24 +2645,48 @@
   <!-- ====== 11. SOCIAL PROOF ====== -->
   <section class="social-proof" id="social">
     <div class="social-inner">
-      <div class="section-label">THE CREW IS GROWING</div>
-      <h2 class="section-headline">100 People. 5 Nights. 1 Ship.</h2>
+      <div class="section-label">REAL PEOPLE. REAL TRIPS.</div>
+      <h2 class="section-headline">Merceades Has Done This Before.<br><span class="gold-text">50+ Trips. 45+ Five-Star Reviews.</span></h2>
 
       <div class="booking-counter">
         <div class="counter-fire">&#128293; Cabins Filling Fast</div>
-        <div class="counter-text">Be among the first 100.</div>
+        <div class="counter-text">Limited to 50 cabins total. Spots going fast.</div>
       </div>
 
-      <p class="testimonial-quote">"I've been to salsa events all over the world. Nothing like this has ever been done from New York."</p>
-      <p class="testimonial-attr">Featured Instructor [Name TBD]</p>
-
-      <div class="social-tiles">
-        <div class="social-tile">Instagram Post Coming Soon</div>
-        <div class="social-tile">Instagram Post Coming Soon</div>
-        <div class="social-tile">Instagram Post Coming Soon</div>
+      <div class="testimonial-grid">
+        <div class="tcard">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"Merceades literally saved our wedding. She got us perks we didn't even know existed and managed our 62 guests like a pro."</p>
+          <p class="tcard-attr">— Kendra &amp; Mike, Cancun 2023</p>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"From our very first email I knew we were in good hands. Responsive, knowledgeable, and genuinely excited about our plans."</p>
+          <p class="tcard-attr">— Amanda &amp; Chris</p>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"Planning a wedding overseas felt overwhelming. This team made it so easy. We just enjoyed the moment — stress-free."</p>
+          <p class="tcard-attr">— Olivia &amp; Marco</p>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"Every little detail was flawless. From the breathtaking views to the ceremony. We felt like royalty."</p>
+          <p class="tcard-attr">— Liam &amp; Aisha</p>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"I was hesitant since we were in early planning stages. So glad I reached out — the guidance helped us make so much better decisions."</p>
+          <p class="tcard-attr">— Taylor &amp; Jordan</p>
+        </div>
+        <div class="tcard tcard-highlight">
+          <div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="tcard-quote">"50+ destination weddings planned. 98% satisfaction rating. 45+ five-star reviews on Google &amp; Facebook. This is what we do."</p>
+          <p class="tcard-attr">— Merceades, Go N' Wander</p>
+        </div>
       </div>
 
-      <p class="social-follow">Follow the journey &rarr; <a href="#">@gonwander</a></p>
+      <p class="social-follow">Follow the journey &rarr; <a href="https://www.instagram.com/go.n.wander/" target="_blank">@go.n.wander</a></p>
     </div>
   </section>
 
