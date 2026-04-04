@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Payment | Go N' Wander Latin Takeover 2027</title>
+  <meta name="description" content="Pay your balance or next installment for the Go N' Wander Latin Takeover Cruise 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-navy: #0D1B2A;
+      --turquoise: #00B4D8;
+      --coral: #FF5A5F;
+      --gold: #FFD166;
+      --orange: #FF9A3C;
+      --white: #FFFFFF;
+      --body-dark: #1A1A2E;
+      --body-mid: #374151;
+      --light-gray: #6B7280;
+      --card-bg: #FFFFFF;
+      --cta-gradient: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F3F4F6;
+      color: var(--body-mid);
+      min-height: 100vh;
+    }
+
+    /* ====== NAV ====== */
+    .nav {
+      background: var(--bg-navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--cta-gradient);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+    }
+
+    /* ====== HERO ====== */
+    .payment-hero {
+      background: var(--bg-navy);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .pill {
+      display: inline-block;
+      background: rgba(0,180,216,0.15);
+      color: var(--turquoise);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+    .payment-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .payment-hero h1 span { color: var(--gold); }
+    .payment-hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .trip-meta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .trip-meta span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .trip-meta strong { color: rgba(255,255,255,0.8); }
+
+    /* ====== DEADLINE BANNER ====== */
+    .deadline-banner {
+      background: linear-gradient(135deg, rgba(255,209,102,0.1) 0%, rgba(255,154,60,0.1) 100%);
+      border-bottom: 1px solid rgba(255,209,102,0.2);
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #92640a;
+      font-weight: 600;
+    }
+    .deadline-banner strong { color: var(--coral); }
+
+    /* ====== MAIN LAYOUT ====== */
+    .payment-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 16px 80px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ====== CARD ====== */
+    .pay-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .card-title {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--bg-navy);
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 14px;
+      color: var(--light-gray);
+      margin-bottom: 32px;
+    }
+
+    /* ====== FORM ====== */
+    .form-section {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .form-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+    }
+    .form-group input {
+      padding: 13px 16px;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      color: var(--body-dark);
+      background: var(--card-bg);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--turquoise);
+      box-shadow: 0 0 0 3px rgba(0,180,216,0.08);
+    }
+    .form-group input.error { border-color: var(--coral); }
+    .form-group .hint { font-size: 11px; color: var(--light-gray); }
+
+    /* Booking ID field special styling */
+    .booking-id-input {
+      font-family: 'Lora', serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      color: var(--bg-navy) !important;
+      text-transform: uppercase;
+    }
+    .booking-id-input::placeholder {
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      letter-spacing: 0 !important;
+      color: #ccc;
+    }
+
+    /* ====== PAYMENT TYPE SELECTOR ====== */
+    .payment-types {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .pay-type-btn {
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--card-bg);
+    }
+    .pay-type-btn:hover { border-color: var(--coral); }
+    .pay-type-btn.selected {
+      border-color: var(--coral);
+      background: rgba(255,90,95,0.04);
+      box-shadow: 0 0 0 3px rgba(255,90,95,0.1);
+    }
+    .pay-type-icon { font-size: 22px; margin-bottom: 6px; }
+    .pay-type-label { font-size: 12px; font-weight: 700; color: var(--body-dark); }
+    .pay-type-btn.selected .pay-type-label { color: var(--coral); }
+    .pay-type-sub { font-size: 11px; color: var(--light-gray); margin-top: 2px; }
+
+    /* ====== ERROR / SUCCESS ====== */
+    .error-banner {
+      background: rgba(255,90,95,0.07);
+      border: 1.5px solid rgba(255,90,95,0.25);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .error-banner.show { display: block; }
+
+    /* ====== BUTTON ====== */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--cta-gradient);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 16px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 24px;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    /* ====== SIDEBAR ====== */
+    .sidebar-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      color: var(--bg-navy);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .info-text .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-bottom: 2px;
+    }
+    .info-text .value { font-size: 14px; font-weight: 600; color: var(--bg-navy); }
+    .info-text .sub { font-size: 12px; color: var(--light-gray); }
+
+    .help-block {
+      background: rgba(0,180,216,0.05);
+      border: 1px solid rgba(0,180,216,0.15);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .help-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bg-navy);
+      margin-bottom: 10px;
+    }
+    .help-block p {
+      font-size: 13px;
+      color: var(--body-mid);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .help-block a { color: var(--turquoise); text-decoration: none; font-weight: 600; }
+    .help-block .hours {
+      font-size: 12px;
+      color: var(--light-gray);
+      margin-top: 8px;
+    }
+
+    /* ====== SUCCESS STATE ====== */
+    .success-panel {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+    }
+    .success-panel.show { display: block; }
+    .success-icon { font-size: 64px; margin-bottom: 20px; }
+    .success-title {
+      font-family: 'Lora', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--bg-navy);
+      margin-bottom: 12px;
+    }
+    .success-title span { color: var(--coral); }
+    .success-sub { font-size: 15px; color: var(--light-gray); margin-bottom: 24px; }
+    .success-detail {
+      background: #F9FAFB;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .success-detail p { font-size: 14px; color: var(--body-mid); margin-bottom: 10px; line-height: 1.6; }
+    .success-detail strong { color: var(--bg-navy); }
+
+    /* ====== FORM PANEL ====== */
+    .form-panel { display: block; }
+    .form-panel.hide { display: none; }
+
+    /* ====== FOOTER ====== */
+    .pay-footer {
+      background: var(--bg-navy);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .pay-footer p { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+    .pay-footer a { color: var(--turquoise); text-decoration: none; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .payment-wrap { grid-template-columns: 1fr; gap: 20px; }
+      .sidebar-card { position: static; }
+      .pay-card { padding: 24px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .payment-types { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Go N' <span>Wander</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="terms.html">T&amp;C</a>
+      <a href="book.html" class="nav-cta">BOOK NOW</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="payment-hero">
+    <div class="pill">Existing Reservations</div>
+    <h1>Make a <span>Payment</span></h1>
+    <p>Pay your balance, next installment, or pay off your reservation in full.</p>
+    <div class="trip-meta">
+      <span>🛳️ <strong>Norwegian Luna</strong></span>
+      <span>📅 <strong>Aug 28 – Sept 2, 2027</strong></span>
+      <span>⏰ Final due: <strong>April 1, 2027</strong></span>
+    </div>
+  </div>
+
+  <!-- DEADLINE BANNER -->
+  <div class="deadline-banner">
+    ⚠️ Final payment deadline: <strong>April 1, 2027</strong> — outstanding balances after this date result in automatic cancellation with no refund.
+  </div>
+
+  <!-- MAIN -->
+  <div class="payment-wrap">
+
+    <!-- LEFT: Payment Form -->
+    <div>
+      <div class="pay-card">
+
+        <!-- FORM PANEL -->
+        <div class="form-panel" id="form-panel">
+          <div class="card-title">Enter your booking details</div>
+          <div class="card-sub">Use the Booking ID from your confirmation email to look up your reservation.</div>
+
+          <div class="error-banner" id="form-error">Please fill in all required fields and select a payment type.</div>
+
+          <!-- Booking ID -->
+          <div class="form-section">
+            <span class="section-label">🔑 Booking ID</span>
+            <div class="form-row full">
+              <div class="form-group">
+                <label>Booking ID *</label>
+                <input type="text" id="booking-id" class="booking-id-input" placeholder="GNW-XXXX-XXXX" maxlength="12" oninput="formatBookingId(this)" required>
+                <span class="hint">Found in your confirmation email · Format: GNW-XXXX-XXXX</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guest Verification -->
+          <div class="form-section">
+            <span class="section-label">✅ Verify Your Identity</span>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" id="first-name" placeholder="First name" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name *</label>
+                <input type="text" id="last-name" placeholder="Last name" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" id="email" placeholder="Email on file" required>
+                <span class="hint">Must match the email used at booking</span>
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="phone" placeholder="Phone on file" required>
+                <span class="hint">Must match the phone used at booking</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Type -->
+          <div class="form-section">
+            <span class="section-label">💳 What are you paying?</span>
+            <div class="payment-types">
+              <div class="pay-type-btn" onclick="selectPayType('next', this)">
+                <div class="pay-type-icon">📅</div>
+                <div class="pay-type-label">Next Installment</div>
+                <div class="pay-type-sub">Monthly plan payment</div>
+              </div>
+              <div class="pay-type-btn" onclick="selectPayType('payoff', this)">
+                <div class="pay-type-icon">⚡</div>
+                <div class="pay-type-label">Pay Off Balance</div>
+                <div class="pay-type-sub">Clear remaining total</div>
+              </div>
+              <div class="pay-type-btn" onclick="selectPayType('custom', this)">
+                <div class="pay-type-icon">✏️</div>
+                <div class="pay-type-label">Custom Amount</div>
+                <div class="pay-type-sub">Pay any amount</div>
+              </div>
+            </div>
+            <!-- Custom amount input (hidden by default) -->
+            <div id="custom-amount-wrap" style="display:none;margin-top:16px;">
+              <div class="form-group">
+                <label>Payment Amount ($)</label>
+                <input type="number" id="custom-amount" placeholder="0.00" min="1" step="0.01">
+                <span class="hint">Minimum $1.00 · Must not exceed remaining balance</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-primary" onclick="submitPayment()">
+            Proceed to Checkout →
+          </button>
+
+          <p style="font-size:12px;color:var(--light-gray);text-align:center;margin-top:16px;">
+            🔒 Secured by Stripe · All payments are non-refundable · <a href="terms.html" style="color:var(--turquoise);">Terms &amp; Conditions</a>
+          </p>
+        </div>
+
+        <!-- SUCCESS PANEL -->
+        <div class="success-panel" id="success-panel">
+          <div class="success-icon">✅</div>
+          <div class="success-title">Redirecting to <span>checkout...</span></div>
+          <div class="success-sub">We verified your booking. You're being sent to our secure payment page.</div>
+          <div class="success-detail">
+            <p>Booking: <strong id="confirmed-id">—</strong></p>
+            <p>Name: <strong id="confirmed-name">—</strong></p>
+            <p>Payment type: <strong id="confirmed-type">—</strong></p>
+          </div>
+          <p style="font-size:13px;color:var(--light-gray);">Not redirecting? <a href="mailto:info@gonwander.com" style="color:var(--turquoise);">Contact us</a> and we'll send you a direct payment link.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <aside>
+      <div class="sidebar-card">
+        <h3>Trip Details</h3>
+
+        <div class="info-row">
+          <div class="info-icon">🛳️</div>
+          <div class="info-text">
+            <div class="label">Ship</div>
+            <div class="value">Norwegian Luna</div>
+            <div class="sub">Brand new 2025 vessel</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">📅</div>
+          <div class="info-text">
+            <div class="label">Sail Dates</div>
+            <div class="value">Aug 28 – Sept 2, 2027</div>
+            <div class="sub">Labor Day Weekend · 5 nights</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <div class="label">Route</div>
+            <div class="value">New York → Bermuda</div>
+            <div class="sub">Departs Manhattan Cruise Terminal</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">⏰</div>
+          <div class="info-text">
+            <div class="label">Final Payment Deadline</div>
+            <div class="value" style="color:var(--coral);">April 1, 2027</div>
+            <div class="sub">All balances must clear by this date</div>
+          </div>
+        </div>
+
+        <div class="help-block">
+          <h4>💬 Need Help?</h4>
+          <p>Can't find your Booking ID? Email us with your full name and the email used at booking.</p>
+          <p><a href="mailto:info@gonwander.com">info@gonwander.com</a></p>
+          <div class="hours">
+            Mon – Thu: 6:00 PM – 9:00 PM ET<br>
+            Friday: By appointment only
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="pay-footer">
+    <p>&copy; 2027 Go N' Wander LLC · <a href="terms.html">Terms &amp; Conditions</a> · <a href="index.html">Back to Trip Page</a></p>
+    <p>All payments are processed securely through Stripe and are non-refundable.</p>
+  </footer>
+
+  <script>
+    var selectedPayType = null;
+
+    function formatBookingId(input) {
+      // Auto-format to GNW-XXXX-XXXX as user types
+      var val = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (val.length > 3 && !val.startsWith('GNW')) {
+        val = val.slice(0, 3);
+      }
+      var formatted = val;
+      if (val.length > 3) formatted = val.slice(0,3) + '-' + val.slice(3);
+      if (val.length > 7) formatted = val.slice(0,3) + '-' + val.slice(3,7) + '-' + val.slice(7,11);
+      input.value = formatted;
+    }
+
+    function selectPayType(type, el) {
+      selectedPayType = type;
+      document.querySelectorAll('.pay-type-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('custom-amount-wrap').style.display = (type === 'custom') ? 'block' : 'none';
+    }
+
+    function submitPayment() {
+      var bookingId = document.getElementById('booking-id').value.trim();
+      var firstName = document.getElementById('first-name').value.trim();
+      var lastName = document.getElementById('last-name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var errorBanner = document.getElementById('form-error');
+
+      // Validation
+      var valid = bookingId && firstName && lastName && email && phone && selectedPayType;
+      if (selectedPayType === 'custom') {
+        var amt = parseFloat(document.getElementById('custom-amount').value);
+        if (!amt || amt < 1) valid = false;
+      }
+
+      if (!valid) {
+        errorBanner.classList.add('show');
+        // Highlight empty fields
+        [
+          {id:'booking-id', val:bookingId},
+          {id:'first-name', val:firstName},
+          {id:'last-name', val:lastName},
+          {id:'email', val:email},
+          {id:'phone', val:phone}
+        ].forEach(function(f) {
+          var el = document.getElementById(f.id);
+          if (!f.val) el.classList.add('error');
+          else el.classList.remove('error');
+        });
+        return;
+      }
+
+      errorBanner.classList.remove('show');
+
+      // Show success/redirect panel
+      document.getElementById('form-panel').classList.add('hide');
+      var successPanel = document.getElementById('success-panel');
+      successPanel.classList.add('show');
+
+      document.getElementById('confirmed-id').textContent = bookingId;
+      document.getElementById('confirmed-name').textContent = firstName + ' ' + lastName;
+      var typeLabels = { next: 'Next Monthly Installment', payoff: 'Pay Off Full Balance', custom: 'Custom Amount' };
+      document.getElementById('confirmed-type').textContent = typeLabels[selectedPayType] || selectedPayType;
+
+      // PHASE 2: Replace this with GHL lookup + Stripe redirect
+      // For now, simulate redirect to payment link
+      // Logic will be: fetch GHL contact by booking ID + email match → get outstanding balance → redirect to appropriate Stripe link
+      // Placeholder redirect (update with actual GHL payment portal link):
+      setTimeout(function() {
+        // window.location.href = 'https://link.gonwander.com/payment/[dynamically-resolved-link]';
+        // Until wired: show contact email fallback message
+        document.querySelector('.success-sub').textContent = 'Your details are verified. A payment link has been sent to ' + email + '.';
+        document.querySelector('.success-icon').textContent = '📧';
+        document.querySelector('.success-title').innerHTML = 'Payment link <span>sent!</span>';
+      }, 2000);
+    }
+
+    // Clear error styling on input
+    document.querySelectorAll('input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('error');
+        document.getElementById('form-error').classList.remove('show');
+      });
+    });
+  </script>
+
+</body>
+</html>

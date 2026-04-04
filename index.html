@@ -1211,6 +1211,53 @@
       border: 2px solid var(--turquoise);
     }
 
+    /* Cabin tier dropdown */
+    .cabin-select-wrap {
+      margin-bottom: 18px;
+    }
+
+    .cabin-select-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .cabin-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--bg-navy);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230D1B2A' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    .cabin-select:focus {
+      outline: none;
+      border-color: var(--coral);
+    }
+
+    .cabin-select-inside:focus {
+      border-color: var(--turquoise);
+    }
+
+    .cabin-occ-note {
+      font-size: 11px;
+      color: var(--light-gray);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
     .pricing-badge {
       display: inline-block;
       font-size: 12px;
@@ -1383,7 +1430,7 @@
         margin: 0 auto;
         transform: none !important;
       }
-      .pricing-card.card-balcony {
+      .pricing-card.card-balcony-ba {
         order: -1;
       }
     }
@@ -2070,14 +2117,15 @@
         <a href="#included">What's Included</a>
         <a href="#music">Music</a>
         <a href="#pricing">CABINS</a>
-        <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="nav-cta" target="_blank">BOOK NOW</a>
+        <a href="payment.html">Make a Payment</a>
+        <a href="book.html" class="nav-cta">BOOK NOW</a>
       </div>
     </div>
   </nav>
 
   <!-- ====== 2. HERO SECTION ====== -->
   <section class="hero" id="hero">
-    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/ncl-bermuda-destination.jpg">
+    <video class="hero-video-bg" autoplay muted loop playsinline webkit-playsinline x5-playsinline poster="assets/ncl-bermuda-destination.jpg">
       <source src="assets/norwegian-luna-hero-web.mp4" type="video/mp4">
     </video>
     <div class="hero-badge">LABOR DAY WEEKEND 2027</div>
@@ -2096,12 +2144,12 @@
     </p>
 
     <div class="hero-cta-wrap">
-      <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="cta-gold" data-cta target="_blank">LOCK IN MY SPOT &rarr;</a>
+      <a href="book.html" class="cta-gold" data-cta>LOCK IN MY SPOT &rarr;</a>
     </div>
-    <p class="hero-fine-print">&rlm;&#9889; Final Payment: May 30, 2027 &middot; Only 50 Cabins Available &middot; Non-Refundable Deposit</p>
+    <p class="hero-fine-print">&rlm;&#9889; Only 50 Cabins Available &middot; Entire Purchase is Non-Refundable &middot; Secure Your Spot Today</p>
 
     <div class="countdown-section">
-      <div class="countdown-label">Final Payment Deadline</div>
+      <div class="countdown-label">⚡ Deposit Deadline — Book Within</div>
       <div class="countdown" id="hero-countdown">
         <div class="countdown-block">
           <div class="countdown-num" id="cd-days">--</div>
@@ -2153,7 +2201,7 @@
         You just need to want to feel alive.</p>
       </div>
       <div class="hook-image">
-        <img src="assets/ncl-dance-show.jpg" alt="Latin dance show on Norwegian Cruise Line" style="width:100%; height:100%; object-fit:cover; border-radius:24px; display:block;">
+        <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=900&q=80" alt="Latin dance show" style="width:100%; height:100%; object-fit:cover; border-radius:24px; display:block;">
       </div>
     </div>
   </section>
@@ -2217,7 +2265,7 @@
       <h2 class="section-headline">Not Just Any Ship.<br><span class="gold-text">The Newest Ship In The World.</span></h2>
 
       <div class="ship-content">
-        <p>Our competition sails on ships from 2004.<br>We sail on <strong style="color:#0D1B2A">Norwegian Luna, launched 2026.</strong></p>
+        <p>We sail on <strong style="color:#0D1B2A">Norwegian Luna, launched 2026</strong> — one of the newest and most stunning ships on the ocean.</p>
         <p>The Glow Court is a 10,000 sq ft LED arena by day.<br>The hottest dance floor at sea by night.</p>
         <p>Imagine 100 of your people dancing salsa under those lights in the middle of the Atlantic Ocean.</p>
         <p style="color:#6B7280">3,565 guests &middot; 17 restaurants &middot; 18 bars &middot; Aqua Slidecoaster &middot; Glow Court</p>
@@ -2370,19 +2418,19 @@
         <div class="genre-pill">
           <span class="pill-icon">&#129345;</span>
           <div class="pill-name">MERENGUE</div>
-          <div class="pill-desc">Theme night</div>
+          <div class="pill-desc">Pure rhythm all night</div>
         </div>
         <div class="genre-pill">
           <span class="pill-icon">&#127754;</span>
           <div class="pill-name">CUMBIA</div>
-          <div class="pill-desc">Because we rep everyone</div>
+          <div class="pill-desc">La música que nos une</div>
         </div>
       </div>
 
       <div class="instructor-grid">
         <div class="instructor-card">
           <div class="instructor-photo-img">
-            <img src="assets/ncl-latin-show.jpg" alt="Salsa Instructor" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
+            <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&q=80" alt="Salsa dancers" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
           </div>
           <div class="instructor-info">
             <h3>Salsa Instructor</h3>
@@ -2391,7 +2439,7 @@
         </div>
         <div class="instructor-card">
           <div class="instructor-photo-img">
-            <img src="assets/ncl-bossa-nova.jpg" alt="Bachata Instructor" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
+            <img src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=600&q=80" alt="Latin dance performance" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
           </div>
           <div class="instructor-info">
             <h3>Bachata Instructor</h3>
@@ -2400,7 +2448,7 @@
         </div>
         <div class="instructor-card">
           <div class="instructor-photo-img">
-            <img src="assets/ncl-dance-show.jpg" alt="Latin Dance Instructor" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
+            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80" alt="Latin dance party" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;">
           </div>
           <div class="instructor-info">
             <h3>Latin Dance Instructor</h3>
@@ -2409,7 +2457,7 @@
         </div>
       </div>
 
-      <p class="music-note">Full lineup dropping soon. Follow <a href="#" style="color:#FFFFFF;font-weight:700;text-decoration:none;">@gonwander</a> for announcements.</p>
+      <p class="music-note">Full lineup dropping soon. Follow <a href="https://www.instagram.com/go.n.wander/" target="_blank" style="color:#FFFFFF;font-weight:700;text-decoration:none;">@go.n.wander</a> for announcements.</p>
     </div>
   </section>
 
@@ -2426,7 +2474,7 @@
       <div class="lineup-header">
         <div class="section-label">THE LINEUP</div>
         <h2 class="section-headline">World-Class Latin Entertainers.<br>All Onboard. All Night.</h2>
-        <p class="section-subheadline" style="color:rgba(255,255,255,0.7);margin:0 auto;">Announcements dropping soon. Follow @gonwander to be first.</p>
+        <p class="section-subheadline" style="color:rgba(255,255,255,0.7);margin:0 auto;">Announcements dropping soon. Follow <a href="https://www.instagram.com/go.n.wander/" target="_blank" style="color:#fff;font-weight:700;">@go.n.wander</a> to be first.</p>
       </div>
 
       <!-- LIVE ARTISTS -->
@@ -2441,7 +2489,7 @@
         <div class="lineup-card">
           <div class="lc-category">LIVE ARTIST</div>
           <div class="lc-name">&#127381;</div>
-          <div class="lc-sub">Follow @gonwander to be first</div>
+          <div class="lc-sub">Follow <a href="https://www.instagram.com/go.n.wander/" target="_blank" style="color:inherit;font-weight:700;">@go.n.wander</a> to be first</div>
           <span class="lc-badge">&#128293; Revealing Soon</span>
         </div>
         <div class="lineup-card">
@@ -2519,7 +2567,7 @@
         </div>
 
         <div class="theme-card">
-          <img src="assets/ncl-latin-show.jpg" alt="Latin Heat Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
+          <img src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=500&q=80" alt="Latin Heat Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
         <span class="tc-emoji">🔥</span>
           <div class="tc-night">Night 2: Sea Day</div>
           <div class="tc-name">LATIN HEAT</div>
@@ -2527,7 +2575,7 @@
         </div>
 
         <div class="theme-card">
-          <img src="assets/ncl-bossa-nova.jpg" alt="Island Colors Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
+          <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=500&q=80" alt="Island Colors Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
         <span class="tc-emoji">🌺</span>
           <div class="tc-night">Night 3: Bermuda</div>
           <div class="tc-name">ISLAND COLORS</div>
@@ -2535,7 +2583,7 @@
         </div>
 
         <div class="theme-card">
-          <img src="assets/ncl-dance-show.jpg" alt="Black Elegance Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
+          <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=500&q=80" alt="Black Elegance Night" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0;display:block;">
         <span class="tc-emoji">✨</span>
           <div class="tc-night">Night 4: Sea Day</div>
           <div class="tc-name">BLACK ELEGANCE</div>
@@ -2565,16 +2613,26 @@
         &#128293; FINAL PAYMENT DUE MAY 30, 2027 &middot; <span class="mini-countdown" id="mini-countdown"></span> &middot; Limited Cabins
       </div>
 
-      <!-- 4-card horizontal scroll -->
+      <!-- 3-card pricing row -->
       <div class="pricing-scroll-row">
 
-        <!-- INSIDE CABIN -->
-        <div class="pricing-card card-inside">
-          <span class="pricing-badge badge-silver">BEST VALUE</span>
+        <!-- INSIDE CABIN with deck dropdown -->
+        <div class="pricing-card card-inside" id="inside-card">
+          <span class="pricing-badge badge-silver" id="inside-badge">BEST VALUE</span>
           <h3>Inside Cabin</h3>
-          <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Double Occupancy</p>
-          <div class="pricing-price">$1,375</div>
-          <div class="pricing-per">/person &middot; starting price</div>
+
+          <div class="cabin-select-wrap">
+            <span class="cabin-select-label">Select Deck</span>
+            <select class="cabin-select cabin-select-inside" id="inside-deck-select" onchange="updateInsidePrice(this.value)">
+              <option value="IB">IB &mdash; Lower Deck ($1,347.05/person)</option>
+              <option value="IA">IA &mdash; Higher Deck ($1,375.55/person)</option>
+            </select>
+          </div>
+
+          <div class="pricing-price" id="inside-price">$1,347<sup style="font-size:20px;">.05</sup></div>
+          <div class="pricing-per">/person &middot; double occupancy</div>
+          <p class="cabin-occ-note">Single, 3rd &amp; 4th guest: priced at time of booking</p>
+
           <ul class="pricing-list">
             <li>All onboard GNW events</li>
             <li>Dance workshops</li>
@@ -2582,18 +2640,29 @@
             <li>All meals included</li>
             <li>Open bar (Norwegian Group Package A)</li>
             <li>Private Facebook group access</li>
+            <li id="inside-deck-label">Interior cabin &middot; Lower deck</li>
           </ul>
-          <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="cta-dark" data-cta target="_blank">BOOK INSIDE CABIN &rarr;</a>
+          <a href="book.html" class="cta-dark" data-cta id="inside-cta">BOOK INSIDE IB &rarr;</a>
           <p class="pricing-deposit">$300/person deposit &middot; Payment plan available</p>
         </div>
 
-        <!-- BALCONY CABIN - FEATURED -->
-        <div class="pricing-card card-balcony">
-          <span class="pricing-badge badge-gold">&#11088; MOST POPULAR</span>
+        <!-- BALCONY CABIN with deck dropdown -->
+        <div class="pricing-card card-balcony" id="balcony-card">
+          <span class="pricing-badge badge-gold" id="balcony-badge">&#11088; MOST POPULAR</span>
           <h3>Balcony Cabin</h3>
-          <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Double Occupancy</p>
-          <div class="pricing-price">$1,586</div>
-          <div class="pricing-per">/person &middot; starting price</div>
+
+          <div class="cabin-select-wrap">
+            <span class="cabin-select-label">Select Deck</span>
+            <select class="cabin-select" id="balcony-deck-select" onchange="updateBalconyPrice(this.value)">
+              <option value="BB">BB &mdash; Lower Deck ($1,586.15/person)</option>
+              <option value="BA">BA &mdash; Higher Deck ($1,611.65/person)</option>
+            </select>
+          </div>
+
+          <div class="pricing-price" id="balcony-price">$1,586<sup style="font-size:22px;">.15</sup></div>
+          <div class="pricing-per">/person &middot; double occupancy</div>
+          <p class="cabin-occ-note">Single, triple &amp; quad: priced at time of booking</p>
+
           <ul class="pricing-list">
             <li>All onboard GNW events</li>
             <li>Dance workshops</li>
@@ -2601,9 +2670,9 @@
             <li>All meals included</li>
             <li>Open bar (Norwegian Group Package A)</li>
             <li>Private Facebook group access</li>
-            <li>Private balcony</li>
+            <li id="balcony-deck-label">Private balcony &middot; Lower deck</li>
           </ul>
-          <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="cta-gold" data-cta target="_blank">BOOK MY BALCONY &rarr;</a>
+          <a href="book.html" class="cta-gold" data-cta id="balcony-cta">BOOK BALCONY BB &rarr;</a>
           <p class="pricing-deposit">$300/person deposit &middot; Payment plan available</p>
         </div>
 
@@ -2633,7 +2702,7 @@
       <div class="pricing-footnotes">
         <p>&#9432; All prices are per person, based on double occupancy.</p>
         <p>&#9432; 3% processing fee applies at checkout.</p>
-        <p>&#9432; Non-refundable deposit secures your cabin.</p>
+        <p>&#9432; All purchases are <a href="terms.html" target="_blank" style="color:var(--coral);font-weight:600;">non-refundable</a>. By booking you agree to our Terms &amp; Conditions.</p>
         <p>&#128179; Pay in full today and lock in your cabin before the deadline.</p>
       </div>
 
@@ -2862,7 +2931,7 @@
       The world's newest ship. Open bar. Live DJs. Your people.<br><br>
       Don't watch from the shore.
     </p>
-    <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="cta-gold" data-cta target="_blank">LOCK IN MY SPOT NOW &rarr;</a>
+    <a href="book.html" class="cta-gold" data-cta>LOCK IN MY SPOT NOW &rarr;</a>
     <p class="final-fine">&#9200; Final payment due May 30, 2027 &middot; &#x1F6F3;&#xFE0F; Only 50 cabins available</p>
   </section>
 
@@ -2878,9 +2947,10 @@
         <a href="#">Facebook</a>
       </div>
       <p class="footer-legal">
-        <a href="#">Terms &amp; Conditions</a> &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Cancellation Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="#">Privacy Policy</a> &middot; <a href="terms.html#cancellation">Cancellation Policy</a>
       </p>
       <p class="footer-copy">&copy; 2027 Go N' Wander, LLC. All rights reserved.<br>Norwegian Luna is operated by Norwegian Cruise Line.</p>
+      <p class="footer-copy" style="margin-top:12px;font-size:12px;opacity:0.7;">This cruise departs from Manhattan, New York City. Guests are welcome from anywhere in the US and beyond — we are not limited to the Tri-State area. Go N' Wander does not arrange flights or ground transportation to the pier. Guests traveling from outside the New York area are responsible for their own travel to the departure port.</p>
     </div>
   </footer>
 
@@ -2892,14 +2962,14 @@
   <!-- ====== 17. MOBILE STICKY BAR ====== -->
   <div class="mobile-sticky">
     <span class="mobile-sticky-text">&#127881; Only 50 Cabins</span>
-    <a href="https://link.gonwander.com/widget/bookings/gnwconsult" class="cta-gold" data-cta target="_blank">BOOK NOW &rarr;</a>
+    <a href="book.html" class="cta-gold" data-cta>BOOK NOW &rarr;</a>
   </div>
 
   <!-- ====== JAVASCRIPT ====== -->
   <script>
-    // Countdown Timer - May 30, 2027 (Final Payment Deadline) 00:00:00 EST
+    // Countdown Timer - 90-day deposit urgency window from page load
     (function() {
-      var endDate = new Date('2027-05-30T23:59:59-05:00').getTime();
+      var endDate = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).getTime();
 
       function updateCountdown() {
         var now = Date.now();
@@ -2956,6 +3026,44 @@
         });
       });
     })();
+
+    // Cabin Deck Dropdown — Inside
+    function updateInsidePrice(val) {
+      var priceEl = document.getElementById('inside-price');
+      var ctaEl = document.getElementById('inside-cta');
+      var labelEl = document.getElementById('inside-deck-label');
+      var badgeEl = document.getElementById('inside-badge');
+      if (val === 'IA') {
+        priceEl.innerHTML = '$1,375<sup style="font-size:20px;">.55</sup>';
+        ctaEl.textContent = 'BOOK INSIDE IA \u2192';
+        labelEl.textContent = 'Interior cabin \u00b7 Higher deck';
+        badgeEl.textContent = 'HIGHER DECK';
+      } else {
+        priceEl.innerHTML = '$1,347<sup style="font-size:20px;">.05</sup>';
+        ctaEl.textContent = 'BOOK INSIDE IB \u2192';
+        labelEl.textContent = 'Interior cabin \u00b7 Lower deck';
+        badgeEl.textContent = 'BEST VALUE';
+      }
+    }
+
+    // Cabin Deck Dropdown — Balcony
+    function updateBalconyPrice(val) {
+      var priceEl = document.getElementById('balcony-price');
+      var ctaEl = document.getElementById('balcony-cta');
+      var labelEl = document.getElementById('balcony-deck-label');
+      var badgeEl = document.getElementById('balcony-badge');
+      if (val === 'BA') {
+        priceEl.innerHTML = '$1,611<sup style="font-size:22px;">.65</sup>';
+        ctaEl.textContent = 'BOOK BALCONY BA \u2192';
+        labelEl.textContent = 'Private balcony \u00b7 Higher deck \u00b7 Better views';
+        badgeEl.innerHTML = '\u2b50 MOST POPULAR \u00b7 HIGHER DECK';
+      } else {
+        priceEl.innerHTML = '$1,586<sup style="font-size:22px;">.15</sup>';
+        ctaEl.textContent = 'BOOK BALCONY BB \u2192';
+        labelEl.textContent = 'Private balcony \u00b7 Lower deck';
+        badgeEl.innerHTML = '\u2b50 MOST POPULAR';
+      }
+    }
 
     // Floating Cabin Button - scroll trigger
     const floatingBtn = document.getElementById('floatingCabinBtn');

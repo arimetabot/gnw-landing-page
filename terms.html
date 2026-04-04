@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions | Go N' Wander Latin Takeover 2027</title>
+  <meta name="description" content="Terms, conditions, and payment policies for the Go N' Wander Latin Takeover Cruise — Norwegian Luna, Labor Day 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-navy: #0D1B2A;
+      --turquoise: #00B4D8;
+      --coral: #FF5A5F;
+      --gold: #FFD166;
+      --orange: #FF9A3C;
+      --white: #FFFFFF;
+      --body-mid: #374151;
+      --light-gray: #6B7280;
+      --card-bg: #FFFFFF;
+      --cta-gradient: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F9FAFB;
+      color: var(--body-mid);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ====== NAV ====== */
+    .nav {
+      background: var(--bg-navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--cta-gradient);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+    }
+
+    /* ====== HERO BANNER ====== */
+    .terms-hero {
+      background: var(--bg-navy);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .terms-hero .pill {
+      display: inline-block;
+      background: rgba(255,90,95,0.15);
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .terms-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .terms-hero h1 span { color: var(--gold); }
+    .terms-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+    .terms-meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .terms-meta span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .terms-meta strong { color: rgba(255,255,255,0.85); }
+
+    /* ====== LAYOUT ====== */
+    .terms-layout {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ====== SIDEBAR TOC ====== */
+    .toc {
+      position: sticky;
+      top: 80px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .toc h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-bottom: 16px;
+    }
+    .toc ul { list-style: none; }
+    .toc ul li { margin-bottom: 4px; }
+    .toc ul li a {
+      font-size: 13px;
+      color: var(--body-mid);
+      text-decoration: none;
+      display: block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+    .toc ul li a:hover {
+      background: rgba(255,90,95,0.07);
+      color: var(--coral);
+    }
+    .toc-back {
+      display: block;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--coral);
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      border: 1.5px solid var(--coral);
+      border-radius: 50px;
+      transition: all 0.2s;
+    }
+    .toc-back:hover { background: var(--coral); color: var(--white); }
+
+    /* ====== MAIN CONTENT ====== */
+    .terms-content { min-width: 0; }
+
+    .terms-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 36px 36px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .terms-section.alert {
+      border-left: 4px solid var(--coral);
+      background: linear-gradient(135deg, rgba(255,90,95,0.03) 0%, var(--card-bg) 100%);
+    }
+
+    .terms-section.info {
+      border-left: 4px solid var(--turquoise);
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .terms-section h2 {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--bg-navy);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .terms-section h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--bg-navy);
+      margin: 24px 0 10px;
+    }
+
+    .terms-section h3:first-of-type { margin-top: 0; }
+
+    .terms-section p {
+      font-size: 15px;
+      color: var(--body-mid);
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    .terms-section ul, .terms-section ol {
+      margin: 0 0 16px 20px;
+    }
+
+    .terms-section li {
+      font-size: 15px;
+      color: var(--body-mid);
+      margin-bottom: 8px;
+      line-height: 1.65;
+    }
+
+    .highlight-box {
+      background: rgba(255,209,102,0.12);
+      border: 1.5px solid rgba(255,209,102,0.4);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #92640a;
+    }
+
+    .alert-box {
+      background: rgba(255,90,95,0.07);
+      border: 1.5px solid rgba(255,90,95,0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .alert-box p {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #c0392b;
+    }
+
+    .fee-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .fee-table th {
+      background: var(--bg-navy);
+      color: var(--white);
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .fee-table th:first-child { border-radius: 8px 0 0 0; }
+    .fee-table th:last-child { border-radius: 0 8px 0 0; }
+
+    .fee-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      color: var(--body-mid);
+    }
+
+    .fee-table tr:last-child td { border-bottom: none; }
+    .fee-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      background: rgba(0,180,216,0.06);
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .contact-item .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      margin-bottom: 4px;
+    }
+
+    .contact-item .value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--bg-navy);
+    }
+
+    .contact-item .sub {
+      font-size: 12px;
+      color: var(--light-gray);
+      margin-top: 2px;
+    }
+
+    /* ====== ACKNOWLEDGEMENT BLOCK ====== */
+    .ack-block {
+      background: var(--bg-navy);
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .ack-block h2 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .ack-block p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .ack-list {
+      list-style: none;
+      margin: 0 0 28px;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+
+    .ack-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .ack-list li:last-child { border-bottom: none; }
+
+    .ack-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--cta-gradient);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ====== FOOTER ====== */
+    .terms-footer {
+      background: var(--bg-navy);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .terms-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 8px;
+    }
+
+    .terms-footer a { color: var(--turquoise); text-decoration: none; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .terms-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .toc { position: static; }
+      .terms-section { padding: 24px 20px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Go N' <span>Wander</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Cabins & Pricing</a>
+      <a href="index.html#faq">FAQs</a>
+      <a href="index.html#pricing" class="nav-cta">BOOK NOW →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="terms-hero">
+    <div class="pill">Legal & Policies</div>
+    <h1>Terms &amp; <span>Conditions</span></h1>
+    <p>Please read these terms carefully before completing your reservation. By booking, you agree to all policies below.</p>
+    <div class="terms-meta">
+      <span>🛳️ <strong>Norwegian Luna</strong> &nbsp;|&nbsp; Aug 28 – Sept 2, 2027</span>
+      <span>📍 <strong>New York → Bermuda → New York</strong></span>
+      <span>📅 Final Payment: <strong>April 1, 2027</strong></span>
+    </div>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="terms-layout">
+
+    <!-- SIDEBAR TOC -->
+    <aside class="toc">
+      <h3>On This Page</h3>
+      <ul>
+        <li><a href="#payments">1. Payments & Deposits</a></li>
+        <li><a href="#nonrefundable">2. Non-Refundable Policy</a></li>
+        <li><a href="#chargeback">3. Chargeback Agreement</a></li>
+        <li><a href="#payment-plan">4. Payment Plans</a></li>
+        <li><a href="#name-change">5. Name Changes</a></li>
+        <li><a href="#late-fees">6. Late Fees</a></li>
+        <li><a href="#insurance">7. Travel Insurance</a></li>
+        <li><a href="#cancellation">8. Cancellation Policy</a></li>
+        <li><a href="#itinerary">9. Itinerary & Changes</a></li>
+        <li><a href="#conduct">10. Guest Conduct</a></li>
+        <li><a href="#accessibility">11. Accessibility</a></li>
+        <li><a href="#liability">12. Liability</a></li>
+        <li><a href="#contact">13. Contact Us</a></li>
+      </ul>
+      <a href="index.html#pricing" class="toc-back">← Back to Booking</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="terms-content">
+
+      <!-- INTRO -->
+      <div class="terms-section info">
+        <p>These Terms and Conditions ("Agreement") govern the purchase of travel services from <strong>Go N' Wander LLC</strong> ("Go N' Wander," "we," "us," or "our") in connection with the <strong>Latin Takeover Cruise 2027</strong> aboard Norwegian Luna, departing August 28, 2027 from New York City and returning September 2, 2027.</p>
+        <p>By submitting a deposit or payment, you ("Guest") acknowledge that you have read, understood, and agree to be bound by this Agreement in its entirety. <strong>This Agreement is legally binding.</strong></p>
+        <div class="alert-box">
+          <p>⚠️ ALL PAYMENTS — INCLUDING DEPOSITS — ARE 100% NON-REFUNDABLE. THERE ARE NO EXCEPTIONS.</p>
+        </div>
+      </div>
+
+      <!-- 1. PAYMENTS & DEPOSITS -->
+      <div class="terms-section" id="payments">
+        <span class="section-num">Section 01</span>
+        <h2>💳 Payments &amp; Deposits</h2>
+
+        <h3>Deposit Requirements</h3>
+        <p>A non-refundable deposit of <strong>$150.00 per person</strong> (minimum) is required at the time of booking to secure your reservation. This deposit is applied toward your total cruise fare balance.</p>
+
+        <h3>Balance &amp; Final Payment</h3>
+        <p>The remaining balance (total fare minus deposit) is due in full by <strong>April 1, 2027</strong>. Reservations with outstanding balances after this date are subject to automatic cancellation without refund of deposits already paid.</p>
+
+        <h3>Pricing</h3>
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Cabin Type</th>
+              <th>Category</th>
+              <th>Price Per Person</th>
+              <th>Occupancy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Inside Cabin IB</td><td>Lower Deck</td><td>$1,347.05</td><td>Double</td></tr>
+            <tr><td>Inside Cabin IA</td><td>Higher Deck</td><td>$1,375.55</td><td>Double</td></tr>
+            <tr><td>Balcony Cabin BB</td><td>Lower Deck</td><td>$1,586.15</td><td>Double</td></tr>
+            <tr><td>Balcony Cabin BA</td><td>Higher Deck</td><td>$1,611.65</td><td>Double</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:var(--light-gray);">All prices include government taxes, port fees, and pre-paid gratuities. Single, triple, and quad occupancy pricing is available upon request and will be quoted at time of booking.</p>
+
+        <h3>Processing Fee</h3>
+        <p>A processing fee will be applied per reservation to cover payment processing costs. This fee will be clearly disclosed at checkout before payment is completed.</p>
+
+        <h3>Accepted Payment Methods</h3>
+        <p>All payments are processed securely through <strong>Stripe</strong>. We accept all major credit and debit cards. By providing payment information, you authorize Go N' Wander to charge the amounts disclosed at checkout.</p>
+      </div>
+
+      <!-- 2. NON-REFUNDABLE POLICY -->
+      <div class="terms-section alert" id="nonrefundable">
+        <span class="section-num">Section 02</span>
+        <h2>🚫 Non-Refundable Policy</h2>
+
+        <div class="alert-box">
+          <p>ALL PAYMENTS MADE TO GO N' WANDER LLC ARE STRICTLY NON-REFUNDABLE. THIS INCLUDES DEPOSITS, PARTIAL PAYMENTS, AND PAYMENTS MADE IN FULL.</p>
+        </div>
+
+        <p>Once a payment is submitted, it cannot be reversed, refunded, or credited under any circumstances, including but not limited to:</p>
+        <ul>
+          <li>Change of plans or personal emergencies</li>
+          <li>Illness or medical conditions (see Travel Insurance section)</li>
+          <li>Work conflicts or schedule changes</li>
+          <li>Failure to obtain a passport or required travel documents</li>
+          <li>Flight delays or missed connections to the departure port</li>
+          <li>Norwegian Cruise Line schedule changes or port substitutions</li>
+          <li>Acts of God, weather events, or force majeure</li>
+        </ul>
+
+        <div class="highlight-box">
+          <p>💡 We strongly recommend purchasing travel insurance to protect your investment. See Section 7 for details.</p>
+        </div>
+
+        <p>By completing your booking, you acknowledge and accept that <strong>your entire purchase is non-refundable</strong> and that no exceptions will be made regardless of circumstances.</p>
+      </div>
+
+      <!-- 3. CHARGEBACK AGREEMENT -->
+      <div class="terms-section alert" id="chargeback">
+        <span class="section-num">Section 03</span>
+        <h2>⚖️ Chargeback Acknowledgement Agreement</h2>
+
+        <p>By completing your reservation and submitting payment, you explicitly agree to the following:</p>
+
+        <ol>
+          <li>You authorize Go N' Wander LLC to charge the agreed-upon amounts to your payment method.</li>
+          <li>You understand that all payments are non-refundable as disclosed in Section 2.</li>
+          <li>You agree <strong>not to initiate a chargeback</strong> or payment dispute with your bank, credit card issuer, or payment processor for any charge made by Go N' Wander LLC in connection with your reservation.</li>
+          <li>You acknowledge that initiating a chargeback constitutes a breach of this Agreement and authorizes Go N' Wander LLC to pursue all available legal remedies, including but not limited to collections, civil action, and recovery of legal fees.</li>
+          <li>In the event of an unauthorized chargeback, Go N' Wander LLC reserves the right to cancel your reservation immediately and permanently bar you from future bookings.</li>
+        </ol>
+
+        <div class="alert-box">
+          <p>⚠️ Filing a fraudulent chargeback on a knowingly authorized transaction may constitute bank fraud. We enforce this policy vigorously.</p>
+        </div>
+
+        <p>If you have a billing question or concern, please contact us directly at <a href="mailto:info@gonwander.com" style="color:var(--turquoise);">info@gonwander.com</a> before taking any action with your financial institution. We are committed to resolving legitimate concerns promptly.</p>
+      </div>
+
+      <!-- 4. PAYMENT PLANS -->
+      <div class="terms-section" id="payment-plan">
+        <span class="section-num">Section 04</span>
+        <h2>📅 Payment Plans</h2>
+
+        <p>Go N' Wander offers an optional monthly payment plan for guests who prefer to spread their balance over time. The following terms apply:</p>
+
+        <h3>How It Works</h3>
+        <ul>
+          <li>A <strong>$150.00 per person deposit</strong> (minimum) is due at the time of booking.</li>
+          <li>The remaining balance is divided into equal monthly installments, charged automatically on the <strong>15th of each month</strong>.</li>
+          <li>Final payment must clear by <strong>April 1, 2027</strong>.</li>
+        </ul>
+
+        <h3>Payment Plan Pricing</h3>
+        <p>Guests who elect the monthly payment plan will pay a <strong>slightly higher total</strong> than the pay-in-full price. This difference accounts for the $65 per person processing fee applied at checkout. The exact total will be disclosed before you confirm.</p>
+
+        <div class="highlight-box">
+          <p>💡 Pay-in-full guests save on processing fees and lock in their cabin at the lowest available price.</p>
+        </div>
+
+        <h3>Automatic Charges</h3>
+        <p>By enrolling in a payment plan, you authorize Go N' Wander LLC to automatically charge your payment method on file each month on the 15th until the balance is paid in full. It is your responsibility to ensure your payment method remains valid and has sufficient funds.</p>
+
+        <h3>Failed Payments</h3>
+        <p>If a scheduled payment fails, Go N' Wander LLC will attempt to reprocess the charge. If the charge is unsuccessful after two (2) attempts, your reservation may be cancelled at our discretion, and all prior payments remain non-refundable. A <strong>$35.00 returned payment fee</strong> applies to each failed transaction. All balances must clear by <strong>April 1, 2027</strong> regardless of payment plan enrollment.</p>
+      </div>
+
+      <!-- 5. NAME CHANGES -->
+      <div class="terms-section" id="name-change">
+        <span class="section-num">Section 05</span>
+        <h2>✏️ Name Changes</h2>
+
+        <p>Name changes and guest substitutions are permitted subject to the following conditions:</p>
+
+        <table class="fee-table">
+          <thead>
+            <tr><th>Change Type</th><th>Timeframe</th><th>Fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Name correction (typo/legal)</td><td>Any time</td><td>$25.00 per name</td></tr>
+            <tr><td>Guest substitution (same cabin)</td><td>90+ days before departure</td><td>$75.00 per person</td></tr>
+            <tr><td>Guest substitution (same cabin)</td><td>60–89 days before departure</td><td>$125.00 per person</td></tr>
+            <tr><td>Guest substitution (same cabin)</td><td>30–59 days before departure</td><td>$200.00 per person</td></tr>
+            <tr><td>Guest substitution (same cabin)</td><td>Under 30 days before departure</td><td>Not permitted</td></tr>
+          </tbody>
+        </table>
+
+        <p>Name change fees are non-refundable and must be paid before any change is processed. Go N' Wander LLC is not responsible for any fees charged by Norwegian Cruise Line in connection with name changes. NCL fees will be passed through to the guest at cost.</p>
+        <p>Name changes must be requested in writing via email to <a href="mailto:info@gonwander.com" style="color:var(--turquoise);">info@gonwander.com</a> with the subject line: <strong>"Name Change Request – [Booking ID]"</strong>.</p>
+      </div>
+
+      <!-- 6. LATE FEES -->
+      <div class="terms-section" id="late-fees">
+        <span class="section-num">Section 06</span>
+        <h2>⏰ Late Fees</h2>
+
+        <p>Timely payment is required to hold your reservation. The following late fees apply:</p>
+
+        <table class="fee-table">
+          <thead>
+            <tr><th>Situation</th><th>Fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Payment plan installment received 1–7 days late</td><td>$25.00</td></tr>
+            <tr><td>Payment plan installment received 8–14 days late</td><td>$50.00</td></tr>
+            <tr><td>Balance not paid by Final Payment Deadline (April 1, 2027)</td><td>Reservation subject to cancellation; all payments forfeited</td></tr>
+            <tr><td>Returned / failed payment fee (per occurrence)</td><td>$35.00</td></tr>
+          </tbody>
+        </table>
+
+        <p>Late fees will be charged to your payment method on file. Continued failure to pay may result in cancellation of your reservation at our sole discretion. All payments previously made remain non-refundable.</p>
+      </div>
+
+      <!-- 7. TRAVEL INSURANCE -->
+      <div class="terms-section" id="insurance">
+        <span class="section-num">Section 07</span>
+        <h2>🛡️ Travel Insurance</h2>
+
+        <p>Go N' Wander LLC <strong>strongly recommends</strong> that all guests purchase comprehensive travel insurance to protect their investment. Given our strict non-refundable policy, travel insurance is the only protection available in the event of unexpected circumstances.</p>
+
+        <h3>Our Recommended Provider</h3>
+        <p>We partner with <strong>Travel Insured International</strong> to offer travel protection plans. Coverage may include trip cancellation, trip interruption, medical evacuation, emergency medical expenses, and more.</p>
+
+        <div class="highlight-box">
+          <p>💡 Travel insurance must be purchased at or shortly after the time of deposit to ensure full coverage, including pre-existing condition waivers.</p>
+        </div>
+
+        <h3>Insurance Declination</h3>
+        <p>If you choose to decline travel insurance, you acknowledge and accept the following:</p>
+        <ul>
+          <li>You are traveling without financial protection for unforeseen events.</li>
+          <li>Go N' Wander LLC is not responsible for any losses incurred due to trip cancellation, medical emergencies, or other covered events.</li>
+          <li>Your decision to decline is final; insurance cannot be added after the booking is submitted.</li>
+        </ul>
+
+        <p>Travel insurance is offered through a third-party provider. Go N' Wander LLC is not an insurance agent and makes no representations regarding coverage. Please review all plan documents carefully before purchasing.</p>
+      </div>
+
+      <!-- 8. CANCELLATION POLICY -->
+      <div class="terms-section alert" id="cancellation">
+        <span class="section-num">Section 08</span>
+        <h2>❌ Cancellation Policy</h2>
+
+        <div class="alert-box">
+          <p>⚠️ ALL CANCELLATIONS RESULT IN FORFEITURE OF ALL PAYMENTS MADE. NO REFUNDS. NO EXCEPTIONS.</p>
+        </div>
+
+        <p>If you wish to cancel your reservation, you must notify Go N' Wander LLC in writing at <a href="mailto:info@gonwander.com" style="color:var(--turquoise);">info@gonwander.com</a>. Cancellation will be acknowledged in writing; however, no refund will be issued regardless of when the cancellation is made or the reason for cancellation.</p>
+
+        <h3>Cancellation by Go N' Wander LLC</h3>
+        <p>Go N' Wander LLC reserves the right to cancel the event in the unlikely event of circumstances beyond our control (force majeure, Norwegian Cruise Line cancellation, natural disaster, etc.). In such cases, Go N' Wander LLC will make commercially reasonable efforts to reschedule to a comparable date and ship. If rescheduling is not possible, guests may receive a credit toward a future Go N' Wander event. <strong>Cash refunds are not guaranteed in force majeure situations.</strong></p>
+
+        <h3>No-Show Policy</h3>
+        <p>Guests who fail to board the ship at departure are considered a "no-show." No refund, credit, or compensation will be provided for no-shows.</p>
+      </div>
+
+      <!-- 9. ITINERARY -->
+      <div class="terms-section" id="itinerary">
+        <span class="section-num">Section 09</span>
+        <h2>🗺️ Itinerary &amp; Changes</h2>
+
+        <p>The Latin Takeover Cruise 2027 is scheduled aboard <strong>Norwegian Luna</strong>, departing <strong>August 28, 2027</strong> from <strong>Manhattan Cruise Terminal, New York City</strong> and returning <strong>September 2, 2027</strong>. The planned itinerary includes a port day in <strong>Bermuda</strong>.</p>
+
+        <p>Norwegian Cruise Line retains full authority over all aspects of the sailing, including but not limited to: ship operations, port calls, onboard programming, and safety decisions. Itinerary changes, port substitutions, and schedule modifications may occur without notice and are beyond Go N' Wander LLC's control. No refunds or credits will be issued for itinerary changes made by Norwegian Cruise Line.</p>
+
+        <h3>Departure Location</h3>
+        <p>This cruise departs from <strong>Manhattan Cruise Terminal, New York City</strong>. Guests are welcome to travel from anywhere in the United States or internationally. Go N' Wander LLC does <strong>not</strong> arrange flights, ground transportation, or hotel accommodations. Guests are solely responsible for their own travel to and from the departure port.</p>
+
+        <h3>Required Documents</h3>
+        <p>All guests must possess a valid U.S. Passport (or other accepted travel documentation per NCL requirements) prior to boarding. Go N' Wander LLC is not responsible for guests who are denied boarding due to improper documentation. No refunds will be issued for documentation-related denials.</p>
+      </div>
+
+      <!-- 10. GUEST CONDUCT -->
+      <div class="terms-section" id="conduct">
+        <span class="section-num">Section 10</span>
+        <h2>🎉 Guest Conduct</h2>
+
+        <p>All guests are expected to conduct themselves in a respectful manner toward fellow guests, crew members, and event staff. Go N' Wander LLC and Norwegian Cruise Line reserve the right to remove any guest from the event or ship for conduct that is disruptive, threatening, or in violation of Norwegian Cruise Line's Guest Conduct Policy.</p>
+
+        <p>Guests removed for conduct violations will not receive any refund of amounts paid. Guests are responsible for any damages caused to ship property or to other guests as a result of their conduct.</p>
+
+        <p>By booking, guests agree to abide by all Norwegian Cruise Line rules, regulations, and policies in addition to Go N' Wander LLC's event guidelines.</p>
+      </div>
+
+      <!-- 11. ACCESSIBILITY -->
+      <div class="terms-section" id="accessibility">
+        <span class="section-num">Section 11</span>
+        <h2>♿ Accessibility &amp; Special Needs</h2>
+
+        <p>Go N' Wander LLC is committed to ensuring an inclusive experience for all guests. If you or a guest in your party has mobility limitations, medical equipment needs, or requires accessibility accommodations, please notify us at the time of booking.</p>
+
+        <p>Norwegian Cruise Line provides accessibility services through their Special Needs desk. We recommend contacting Norwegian Cruise Line directly at the earliest opportunity to arrange accommodations. Advance notice of at least <strong>90 days</strong> is strongly recommended for guests with mobility disabilities or special medical equipment requirements.</p>
+
+        <p>Go N' Wander LLC will make reasonable efforts to communicate your needs to Norwegian Cruise Line but cannot guarantee specific accommodations. Availability of accessible cabins is subject to Norwegian Cruise Line inventory.</p>
+      </div>
+
+      <!-- 12. LIABILITY -->
+      <div class="terms-section" id="liability">
+        <span class="section-num">Section 12</span>
+        <h2>⚖️ Limitation of Liability</h2>
+
+        <p>Go N' Wander LLC acts as an event organizer and travel agent. We do not own, operate, or control Norwegian Luna or any vessels, hotels, airlines, or ground transportation providers used in connection with this trip.</p>
+
+        <p>Go N' Wander LLC is not responsible or liable for:</p>
+        <ul>
+          <li>Personal injury, death, property damage, or loss of any kind occurring on Norwegian Luna or during port excursions</li>
+          <li>Acts or omissions of Norwegian Cruise Line, its employees, or agents</li>
+          <li>Delays, cancellations, or changes to the ship's itinerary</li>
+          <li>Lost, stolen, or damaged personal property</li>
+          <li>Illness, including but not limited to seasickness or shipboard illness outbreaks</li>
+          <li>Acts of God, weather, war, terrorism, government actions, or other force majeure events</li>
+        </ul>
+
+        <p>To the maximum extent permitted by law, Go N' Wander LLC's total liability to any guest shall not exceed the total amount paid by that guest to Go N' Wander LLC for the booking. <strong>In no event shall Go N' Wander LLC be liable for indirect, incidental, special, or consequential damages.</strong></p>
+
+        <p>This agreement shall be governed by the laws of the State of [State TBD], without regard to conflict of law provisions.</p>
+      </div>
+
+      <!-- 13. CONTACT -->
+      <div class="terms-section info" id="contact">
+        <span class="section-num">Section 13</span>
+        <h2>📬 Contact Us</h2>
+
+        <p>For questions about your reservation, payments, or these Terms &amp; Conditions, please reach out through one of the channels below. We're here to help.</p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@gonwander.com" style="color:var(--bg-navy);text-decoration:none;">info@gonwander.com</a></div>
+            <div class="sub">Best for booking inquiries</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Website</div>
+            <div class="value"><a href="https://gonwander.com" style="color:var(--bg-navy);text-decoration:none;">gonwander.com</a></div>
+            <div class="sub">Latin Takeover booking page</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Office Hours</div>
+            <div class="value">Mon – Thu</div>
+            <div class="sub">6:00 PM – 9:00 PM Eastern Time</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Friday</div>
+            <div class="value">By Appointment Only</div>
+            <div class="sub">Email to schedule</div>
+          </div>
+        </div>
+
+        <p style="margin-top:20px;font-size:14px;color:var(--light-gray);">Please include your <strong>Booking ID</strong> and <strong>full name</strong> in all correspondence. Response time is 1–2 business days during office hours.</p>
+      </div>
+
+      <!-- ACKNOWLEDGEMENT BLOCK -->
+      <div class="ack-block">
+        <h2>Ready to Book? You've Got This. 🌊</h2>
+        <p>By completing your reservation, you confirm you have read and agree to all terms above.</p>
+        <ul class="ack-list">
+          <li>All payments are non-refundable — I understand and accept this</li>
+          <li>I will not initiate chargebacks for authorized charges</li>
+          <li>I understand the final payment deadline is April 1, 2027</li>
+          <li>I am responsible for my own travel to Manhattan Cruise Terminal</li>
+          <li>I will ensure I have valid travel documents before boarding</li>
+        </ul>
+        <a href="index.html#pricing" class="btn-gold">LOCK IN MY SPOT →</a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="terms-footer">
+    <p>&copy; 2027 Go N' Wander LLC. All rights reserved. Norwegian Luna is operated by Norwegian Cruise Line.</p>
+    <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:info@gonwander.com">info@gonwander.com</a> &nbsp;·&nbsp; <a href="index.html#faq">FAQs</a></p>
+  </footer>
+
+</body>
+</html>
