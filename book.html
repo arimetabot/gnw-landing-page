@@ -878,13 +878,21 @@
           </div>
         </div>
 
-        <div class="guest-note">
+        <div class="guest-note" id="guest-note-default">
           💡 3rd and 4th guest pricing will be quoted and confirmed by our team. 2-guest (double occupancy) pricing is shown on the next screen.
+        </div>
+
+        <!-- Solo occupancy redirect notice (shown only when 1 guest selected) -->
+        <div id="solo-notice" style="display:none; margin-top:20px; background:rgba(255,90,95,0.06); border:1.5px solid rgba(255,90,95,0.25); border-radius:16px; padding:24px 24px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:8px;">🛏️ Solo Traveler? We'll Sort You Out.</div>
+          <p style="font-size:14px;color:var(--body-mid);line-height:1.7;margin-bottom:16px;">Single occupancy cabins are available but <strong>must be booked directly with Go N' Wander</strong> — pricing and cabin matching depend on availability. Click below to send us your info and we'll get back to you within 24 hours.</p>
+          <a href="mailto:info@gonwander.com?subject=Solo%20Cabin%20Inquiry%20%E2%80%94%20Latin%20Takeover%202027&body=Hi%20Go%20N'%20Wander!%20I'm%20interested%20in%20a%20solo%20cabin%20for%20the%20Latin%20Takeover%202027.%20Please%20send%20me%20pricing%20and%20availability." style="display:inline-flex;align-items:center;gap:8px;background:var(--cta-gradient);color:#fff;font-family:Poppins,sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:50px;text-decoration:none;">📧 Email Us About Solo Booking</a>
+          <p style="font-size:12px;color:var(--light-gray);margin-top:12px;">Or email us directly: <a href="mailto:info@gonwander.com" style="color:var(--turquoise);font-weight:600;">info@gonwander.com</a> · We'll respond within 24 hours.</p>
         </div>
 
         <div class="step-nav" style="margin-top:28px;">
           <a href="index.html" class="btn-secondary">← Back to Trip</a>
-          <button class="btn-primary" id="step1-next" onclick="goToStep(2)" disabled>Next: Choose Your Cabin →</button>
+          <button class="btn-primary" id="step1-next" onclick="handleStep1Next()" disabled>Next: Choose Your Cabin →</button>
         </div>
       </div>
     </div>
@@ -1143,6 +1151,31 @@
       el.classList.add('selected');
       state.guestCount = n;
       document.getElementById('step1-next').disabled = false;
+
+      // Show/hide solo notice and update button label
+      var soloNotice = document.getElementById('solo-notice');
+      var guestNote = document.getElementById('guest-note-default');
+      var nextBtn = document.getElementById('step1-next');
+      if (n === 1) {
+        soloNotice.style.display = 'block';
+        guestNote.style.display = 'none';
+        nextBtn.textContent = 'Contact Us for Solo Booking →';
+        nextBtn.style.background = 'linear-gradient(135deg, #6B7280, #374151)';
+      } else {
+        soloNotice.style.display = 'none';
+        guestNote.style.display = 'block';
+        nextBtn.textContent = 'Next: Choose Your Cabin →';
+        nextBtn.style.background = '';
+      }
+    }
+
+    function handleStep1Next() {
+      if (state.guestCount === 1) {
+        // Redirect solos to email instead of booking flow
+        window.location.href = 'mailto:info@gonwander.com?subject=Solo%20Cabin%20Inquiry%20%E2%80%94%20Latin%20Takeover%202027&body=Hi%20Go%20N%27%20Wander!%20I%27m%20interested%20in%20a%20solo%20cabin%20for%20the%20Latin%20Takeover%202027.%20Please%20send%20me%20pricing%20and%20availability.';
+      } else {
+        goToStep(2);
+      }
     }
 
     // ====== STEP 2: CABIN RENDER ======
@@ -1250,8 +1283,40 @@
         banner.classList.add('show');
       } else {
         banner.classList.remove('show');
+        pushToGHL();
         goToStep(4);
       }
+    }
+
+    // ====== GHL WEBHOOK: fire on valid guest form submission ======
+    function pushToGHL() {
+      try {
+        var g0 = state.guests[0];
+        if (!g0) return;
+        var payload = {
+          // Contact fields (primary guest)
+          firstName:   g0.first,
+          lastName:    g0.last,
+          email:       g0.email,
+          phone:       g0.phone,
+          // Booking metadata
+          bookingId:   state.bookingId || '',
+          cabinType:   state.selectedCabin ? state.selectedCabin.name : '',
+          cabinId:     state.selectedCabin ? state.selectedCabin.id : '',
+          guestCount:  state.guestCount,
+          source:      'GNW Latin Takeover 2027 — book.html',
+          // All guests serialized
+          allGuests: state.guests.map(function(g, i) {
+            return { index: i + 1, first: g.first, last: g.last, email: g.email, phone: g.phone };
+          })
+        };
+        fetch('https://services.leadconnectorhq.com/hooks/aKHZ7mW4CTU5LLU0QD6L/webhook-trigger/fb34fb79-2022-4b8f-9a09-da9dcb141dfc', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch(function() { /* silent fail — don't block booking flow */ });
+      } catch(e) { /* silent fail */ }
     }
 
     // ====== STEP 4: INSURANCE ======
