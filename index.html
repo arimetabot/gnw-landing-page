@@ -2371,7 +2371,7 @@
         </div>
         <div class="itinerary-detail">
           <h3>At Sea</h3>
-          <p>Final sea day. Closing night concert. Recover. Relive. Say goodbye to new friends.</p>
+          <p>Final sea day at sea. Recover. Relive. Say goodbye to new friends made for life.</p>
         </div>
       </div>
 
@@ -2624,8 +2624,8 @@
           <div class="cabin-select-wrap">
             <span class="cabin-select-label">Select Deck</span>
             <select class="cabin-select cabin-select-inside" id="inside-deck-select" onchange="updateInsidePrice(this.value)">
-              <option value="IB">IB &mdash; Lower Deck ($1,347.05/person)</option>
-              <option value="IA">IA &mdash; Higher Deck ($1,375.55/person)</option>
+              <option value="IB">IB Lower Deck &mdash; $1,347.15</option>
+              <option value="IA">IA Higher Deck &mdash; $1,375.55</option>
             </select>
           </div>
 
@@ -2642,7 +2642,7 @@
             <li>Private Facebook group access</li>
             <li id="inside-deck-label">Interior cabin &middot; Lower deck</li>
           </ul>
-          <a href="book.html" class="cta-dark" data-cta id="inside-cta">BOOK INSIDE IB &rarr;</a>
+          <a href="book.html?cabin=IB" class="cta-dark" data-cta id="inside-cta">BOOK INSIDE IB &rarr;</a>
           <p class="pricing-deposit">$150/person deposit &middot; Payment plan available</p>
         </div>
 
@@ -2654,8 +2654,8 @@
           <div class="cabin-select-wrap">
             <span class="cabin-select-label">Select Deck</span>
             <select class="cabin-select" id="balcony-deck-select" onchange="updateBalconyPrice(this.value)">
-              <option value="BB">BB &mdash; Lower Deck ($1,586.15/person)</option>
-              <option value="BA">BA &mdash; Higher Deck ($1,611.65/person)</option>
+              <option value="BB">BB Lower Deck &mdash; $1,586.15</option>
+              <option value="BA">BA Higher Deck &mdash; $1,611.65</option>
             </select>
           </div>
 
@@ -2672,7 +2672,7 @@
             <li>Private Facebook group access</li>
             <li id="balcony-deck-label">Private balcony &middot; Lower deck</li>
           </ul>
-          <a href="book.html" class="cta-gold" data-cta id="balcony-cta">BOOK BALCONY BB &rarr;</a>
+          <a href="book.html?cabin=BB" class="cta-gold" data-cta id="balcony-cta">BOOK BALCONY BB &rarr;</a>
           <p class="pricing-deposit">$150/person deposit &middot; Payment plan available</p>
         </div>
 
@@ -3035,13 +3035,15 @@
       var badgeEl = document.getElementById('inside-badge');
       if (val === 'IA') {
         priceEl.innerHTML = '$1,375<sup style="font-size:20px;">.55</sup>';
-        ctaEl.textContent = 'BOOK INSIDE IA \u2192';
-        labelEl.textContent = 'Interior cabin \u00b7 Higher deck';
+        ctaEl.textContent = 'BOOK INSIDE IA →';
+        ctaEl.href = 'book.html?cabin=IA';
+        labelEl.textContent = 'Interior cabin · Higher deck';
         badgeEl.textContent = 'HIGHER DECK';
       } else {
         priceEl.innerHTML = '$1,347<sup style="font-size:20px;">.05</sup>';
-        ctaEl.textContent = 'BOOK INSIDE IB \u2192';
-        labelEl.textContent = 'Interior cabin \u00b7 Lower deck';
+        ctaEl.textContent = 'BOOK INSIDE IB →';
+        ctaEl.href = 'book.html?cabin=IB';
+        labelEl.textContent = 'Interior cabin · Lower deck';
         badgeEl.textContent = 'BEST VALUE';
       }
     }
@@ -3054,14 +3056,16 @@
       var badgeEl = document.getElementById('balcony-badge');
       if (val === 'BA') {
         priceEl.innerHTML = '$1,611<sup style="font-size:22px;">.65</sup>';
-        ctaEl.textContent = 'BOOK BALCONY BA \u2192';
-        labelEl.textContent = 'Private balcony \u00b7 Higher deck \u00b7 Better views';
-        badgeEl.innerHTML = '\u2b50 MOST POPULAR \u00b7 HIGHER DECK';
+        ctaEl.textContent = 'BOOK BALCONY BA →';
+        ctaEl.href = 'book.html?cabin=BA';
+        labelEl.textContent = 'Private balcony · Higher deck · Better views';
+        badgeEl.innerHTML = '⭐ MOST POPULAR · HIGHER DECK';
       } else {
         priceEl.innerHTML = '$1,586<sup style="font-size:22px;">.15</sup>';
-        ctaEl.textContent = 'BOOK BALCONY BB \u2192';
-        labelEl.textContent = 'Private balcony \u00b7 Lower deck';
-        badgeEl.innerHTML = '\u2b50 MOST POPULAR';
+        ctaEl.textContent = 'BOOK BALCONY BB →';
+        ctaEl.href = 'book.html?cabin=BB';
+        labelEl.textContent = 'Private balcony · Lower deck';
+        badgeEl.innerHTML = '⭐ MOST POPULAR';
       }
     }
 
