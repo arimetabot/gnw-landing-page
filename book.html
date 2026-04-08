@@ -1053,7 +1053,29 @@
             <div class="booking-id-note">Save this — you'll need it for payments and questions</div>
           </div>
 
-          <div id="redirect-notice" style="background:rgba(255,90,95,0.06);border:1.5px solid rgba(255,90,95,0.2);border-radius:14px;padding:14px 20px;margin-bottom:20px;font-size:14px;color:var(--body-mid);text-align:center;">
+          <!-- Multi-guest payment choice (shown only for 2+ guests) -->
+          <div id="payment-choice-block" style="display:none;background:rgba(0,180,216,0.05);border:1.5px solid rgba(0,180,216,0.2);border-radius:20px;padding:28px;margin-bottom:24px;text-align:left;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--turquoise);margin-bottom:8px;">👥 You have multiple guests — how should payment work?</div>
+            <div style="font-size:14px;color:var(--light-gray);margin-bottom:20px;">Choose how you'd like to handle payment for your group.</div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <button onclick="choosePaymentMode('one-card')" style="display:flex;align-items:flex-start;gap:14px;background:rgba(255,90,95,0.08);border:1.5px solid rgba(255,90,95,0.3);border-radius:14px;padding:18px 20px;cursor:pointer;text-align:left;width:100%;">
+                <span style="font-size:24px;flex-shrink:0;">💳</span>
+                <span>
+                  <span style="display:block;font-family:Poppins,sans-serif;font-size:14px;font-weight:700;color:var(--coral);margin-bottom:3px;">Pay for everyone on one card</span>
+                  <span style="font-family:Poppins,sans-serif;font-size:13px;color:var(--light-gray);">I'll charge the full group total to my card right now. One checkout, one confirmation.</span>
+                </span>
+              </button>
+              <button onclick="choosePaymentMode('split')" style="display:flex;align-items:flex-start;gap:14px;background:rgba(0,180,216,0.06);border:1.5px solid rgba(0,180,216,0.25);border-radius:14px;padding:18px 20px;cursor:pointer;text-align:left;width:100%;">
+                <span style="font-size:24px;flex-shrink:0;">📨</span>
+                <span>
+                  <span style="display:block;font-family:Poppins,sans-serif;font-size:14px;font-weight:700;color:var(--turquoise);margin-bottom:3px;">Send each guest their own payment link</span>
+                  <span style="font-family:Poppins,sans-serif;font-size:13px;color:var(--light-gray);">Each person pays separately. I'll get share links to send them right now.</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div id="redirect-notice" style="background:rgba(255,90,95,0.06);border:1.5px solid rgba(255,90,95,0.2);border-radius:14px;padding:14px 20px;margin-bottom:20px;font-size:14px;color:var(--body-mid);text-align:center;display:none;">
             💳 Taking you to payment in <strong><span id="redirect-countdown">5</span></strong> seconds&hellip;
           </div>
 
@@ -1528,83 +1550,110 @@
         paymentUrl = PAYMENT_LINKS[cabinId].plan;
       }
 
-      // If multi-guest: show guest 2+ share block on confirmation screen
+      // Multi-guest: advance to step 6, show payment choice block, wait for selection
       if (state.guestCount > 1 && paymentUrl) {
+        state.resolvedPaymentUrl = paymentUrl;
+        state.resolvedCabinId = cabinId;
+        state.resolvedMethod = method;
+        goToStep(6);
+        document.getElementById('payment-choice-block').style.display = 'block';
+        return; // wait for user to choose via choosePaymentMode()
+      }
+
+      // Single guest — advance to step 6 then redirect
+      goToStep(6);
+      if (paymentUrl) {
+        _startCheckoutRedirect(paymentUrl, cabinId, method, 1);
+      }
+    }
+
+    function choosePaymentMode(mode) {
+      var paymentUrl = state.resolvedPaymentUrl;
+      var cabinId = state.resolvedCabinId;
+      var method = state.resolvedMethod;
+      var gc = state.guestCount;
+
+      document.getElementById('payment-choice-block').style.display = 'none';
+
+      if (mode === 'one-card') {
+        // Multiply: append ?qty=N to payment link URL
+        var groupUrl = paymentUrl + (paymentUrl.indexOf('?') >= 0 ? '&' : '?') + 'qty=' + gc;
+        _startCheckoutRedirect(groupUrl, cabinId, method, gc);
+
+      } else {
+        // Split: show share links for guests 2+, redirect primary guest
         var cabinName = state.selectedCabin ? state.selectedCabin.name : 'your cabin';
+        var checkoutParams = new URLSearchParams({
+          cabin: cabinId, method: method, guests: gc, bid: state.bookingId,
+          fn: (state.guests[0] && state.guests[0].first) || ''
+        });
+        var checkoutUrl = 'checkout.html?' + checkoutParams.toString();
+
         var g2html = '<div style="background:rgba(0,180,216,0.06);border:1.5px solid rgba(0,180,216,0.2);border-radius:20px;padding:24px 28px;margin:24px 0;text-align:left;">'
           + '<div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--turquoise);margin-bottom:6px;">📨 Send Payment Links to Your Travel Companions</div>'
-          + '<div style="font-size:14px;color:var(--light-gray);margin-bottom:20px;">Each guest needs to complete their own payment. Hit the buttons below to send them their link now.</div>';
+          + '<div style="font-size:14px;color:var(--light-gray);margin-bottom:20px;">Each guest completes their own payment. Send them their link now.</div>';
 
-        for (var i = 1; i < state.guestCount; i++) {
+        for (var i = 1; i < gc; i++) {
           var g = state.guests[i] || {};
           var gName = (g.first && g.last) ? esc(g.first) + ' ' + esc(g.last) : 'Guest ' + (i + 1);
           var gEmail = g.email || '';
           var gPhone = (g.phone || '').replace(/\D/g, '');
-
           var emailSubject = encodeURIComponent('Your Payment Link — GNW Latin Takeover 2027');
           var emailBody = encodeURIComponent(
             'Hey ' + (g.first || 'there') + '! 🌊\n\n'
-            + 'You\'re officially on the list for the Go N\' Wander Latin Takeover Cruise 2027 aboard Norwegian Luna (Aug 28–Sept 2, 2027).\n\n'
-            + 'Cabin: ' + cabinName + '\n'
-            + 'To secure your spot, complete your payment here:\n\n'
-            + checkoutUrl + '\n\n'
-            + 'Balance due: April 1, 2027.\n\n'
-            + 'Questions? Email info@gonwander.com\n\n'
-            + '— ' + (state.guests[0] ? state.guests[0].first : 'Your travel partner') + ' & Go N\' Wander'
+            + 'You\'re on the list for the Go N\' Wander Latin Takeover Cruise 2027 aboard Norwegian Luna (Aug 28–Sept 2, 2027).\n\n'
+            + 'Cabin: ' + cabinName + '\nComplete your payment here:\n\n' + checkoutUrl
+            + '\n\nBalance due: April 1, 2027.\n\nQuestions? Email info@gonwander.com\n\n'
+            + '\u2014 ' + (state.guests[0] ? state.guests[0].first : 'Your travel partner') + ' & Go N\' Wander'
           );
           var mailtoLink = 'mailto:' + gEmail + '?subject=' + emailSubject + '&body=' + emailBody;
-
           var smsBody = encodeURIComponent(
-            'Hey ' + (g.first || 'there') + '! Your payment link for the GNW Latin Takeover Cruise 2027 — '
-            + cabinName + '. Complete your payment here: ' + checkoutUrl
-            + ' · Balance due April 1, 2027. Questions? info@gonwander.com'
+            'Hey ' + (g.first || 'there') + '! Your payment link for GNW Latin Takeover 2027 — '
+            + cabinName + ': ' + checkoutUrl + ' · Balance due April 1, 2027. Questions? info@gonwander.com'
           );
           var smsLink = 'sms:' + gPhone + '?body=' + smsBody;
 
           g2html += '<div style="padding:16px 0;border-top:1px solid rgba(0,180,216,0.12);">'
             + '<div style="font-size:14px;font-weight:700;color:var(--bg-navy);margin-bottom:12px;">' + esc(gName) + '</div>'
             + '<div style="display:flex;gap:10px;flex-wrap:wrap;">';
-
-          if (gEmail) {
-            g2html += '<a href="' + mailtoLink + '" style="display:inline-flex;align-items:center;gap:6px;background:var(--bg-navy);color:#fff;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:50px;text-decoration:none;">📧 Send Email</a>';
-          }
-          if (gPhone) {
-            g2html += '<a href="' + smsLink + '" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF5A5F,#FF9A3C);color:#fff;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:50px;text-decoration:none;">💬 Send Text</a>';
-          }
+          if (gEmail) g2html += '<a href="' + mailtoLink + '" style="display:inline-flex;align-items:center;gap:6px;background:var(--bg-navy);color:#fff;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:50px;text-decoration:none;">📧 Send Email</a>';
+          if (gPhone) g2html += '<a href="' + smsLink + '" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF5A5F,#FF9A3C);color:#fff;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:50px;text-decoration:none;">💬 Send Text</a>';
           g2html += '<a href="' + checkoutUrl + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--turquoise);font-family:Poppins,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:50px;border:1.5px solid var(--turquoise);text-decoration:none;">🔗 Copy Link</a>';
           g2html += '</div></div>';
         }
-
         g2html += '</div>';
         var nextBlock = document.querySelector('.confirm-next');
         if (nextBlock) nextBlock.insertAdjacentHTML('beforebegin', g2html);
-      }
-
-      goToStep(6);
-
-      // Redirect primary guest to branded checkout page
-      if (paymentUrl) {
-        var checkoutParams = new URLSearchParams({
-          cabin: cabinId,
-          method: method,
-          guests: state.guestCount,
-          bid: state.bookingId,
-          fn: (state.guests[0] && state.guests[0].firstName) || ''
-        });
-        var checkoutUrl = 'checkout.html?' + checkoutParams.toString();
-        var countdown = 5;
-        var cdEl = document.getElementById('redirect-countdown');
-        if (cdEl) cdEl.textContent = countdown;
-        var cdTimer = setInterval(function() {
-          countdown--;
-          if (cdEl) cdEl.textContent = countdown;
-          if (countdown <= 0) {
-            clearInterval(cdTimer);
-            window.location.href = checkoutUrl;
-          }
-        }, 1000);
+        _startCheckoutRedirect(paymentUrl, cabinId, method, 1);
       }
     }
+
+    function _startCheckoutRedirect(paymentUrl, cabinId, method, guestsPaying) {
+      document.getElementById('redirect-notice').style.display = 'block';
+
+      // If paying for group on one card: go directly to payment link (GHL handles qty)
+      // Otherwise: go to branded checkout.html wrapper
+      var destination;
+      if (guestsPaying > 1) {
+        destination = paymentUrl; // direct to GHL with ?qty=N
+      } else {
+        var checkoutParams = new URLSearchParams({
+          cabin: cabinId, method: method, guests: guestsPaying,
+          bid: state.bookingId, fn: (state.guests[0] && state.guests[0].first) || ''
+        });
+        destination = 'checkout.html?' + checkoutParams.toString();
+      }
+
+      var countdown = 5;
+      var cdEl = document.getElementById('redirect-countdown');
+      if (cdEl) cdEl.textContent = countdown;
+      var cdTimer = setInterval(function() {
+        countdown--;
+        if (cdEl) cdEl.textContent = countdown;
+        if (countdown <= 0) { clearInterval(cdTimer); window.location.href = destination; }
+      }, 1000);
+    }
+
   </script>
 
 </body>
