@@ -21,7 +21,6 @@
       --white: #FFFFFF;
       --body-mid: #374151;
       --light-gray: #6B7280;
-      --card-bg: #FFFFFF;
       --cta-gradient: linear-gradient(135deg, #FF5A5F 0%, #FF9A3C 100%);
     }
 
@@ -35,7 +34,7 @@
 
     /* ====== NAV ====== */
     .nav {
-      background: rgba(13,27,42,0.95);
+      background: rgba(13,27,42,0.97);
       backdrop-filter: blur(12px);
       padding: 14px 24px;
       display: flex;
@@ -44,7 +43,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
     }
     .nav-brand {
       font-family: 'Lora', serif;
@@ -65,12 +64,13 @@
 
     /* ====== PROGRESS BAR ====== */
     .progress-bar {
-      background: rgba(255,255,255,0.05);
-      padding: 16px 24px;
+      background: rgba(255,255,255,0.04);
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .progress-step {
       display: flex;
@@ -95,29 +95,54 @@
       font-size: 10px;
       font-weight: 700;
     }
-    .progress-step.done .progress-dot {
-      background: #22c55e;
-      border-color: #22c55e;
-      color: #fff;
-    }
-    .progress-step.active .progress-dot {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--bg-navy);
-    }
-    .progress-line {
-      width: 40px;
-      height: 2px;
-      background: rgba(255,255,255,0.1);
-      margin: 0 4px;
-    }
+    .progress-step.done .progress-dot { background: #22c55e; border-color: #22c55e; color: #fff; }
+    .progress-step.active .progress-dot { background: var(--gold); border-color: var(--gold); color: var(--bg-navy); }
+    .progress-line { width: 40px; height: 2px; background: rgba(255,255,255,0.1); margin: 0 4px; }
     .progress-line.done { background: #22c55e; }
+
+    /* ====== RESERVATION TIMER BANNER ====== */
+    .timer-banner {
+      background: linear-gradient(90deg, rgba(255,90,95,0.15) 0%, rgba(255,154,60,0.15) 100%);
+      border-bottom: 1px solid rgba(255,90,95,0.25);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .timer-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: pulse 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .timer-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+    .timer-count {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--coral);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .02em;
+    }
+    .timer-banner.warning .timer-count { color: #facc15; animation: flash .5s ease-in-out infinite; }
+    @keyframes flash { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
     /* ====== LAYOUT ====== */
     .checkout-wrap {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 40px 24px 60px;
       display: grid;
       grid-template-columns: 1fr 480px;
       gap: 32px;
@@ -135,7 +160,7 @@
       border-radius: 24px;
       padding: 32px;
       position: sticky;
-      top: 90px;
+      top: 110px;
     }
     .order-card-title {
       font-family: 'Lora', serif;
@@ -153,114 +178,68 @@
       margin-bottom: 24px;
     }
     .trip-icon {
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       background: var(--cta-gradient);
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; flex-shrink: 0;
     }
-    .trip-name {
-      font-family: 'Lora', serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.3;
-    }
-    .trip-meta {
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 3px;
-    }
+    .trip-name { font-family: 'Lora', serif; font-size: 17px; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .trip-meta { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
 
     .detail-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      font-size: 14px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; font-size: 14px;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .detail-row:last-of-type { border-bottom: none; }
     .detail-label { color: rgba(255,255,255,0.55); }
     .detail-value { font-weight: 600; color: var(--white); }
-    .detail-value.included {
-      color: #22c55e;
-      font-weight: 500;
-      font-size: 12px;
-    }
+    .detail-value.included { color: #22c55e; font-weight: 500; font-size: 12px; }
     .detail-value.fee { color: var(--light-gray); font-weight: 400; }
 
-    .summary-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin: 16px 0;
-    }
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
-    }
-    .total-label {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .total-amount {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .total-sub {
-      font-size: 11px;
-      color: rgba(255,255,255,0.4);
-      margin-top: 4px;
-      text-align: right;
-    }
+    .summary-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; }
+    .total-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+    .total-label { font-size: 15px; font-weight: 700; color: var(--white); }
+    .total-amount { font-size: 22px; font-weight: 700; color: var(--gold); }
+    .total-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; text-align: right; }
 
     .booking-id-badge {
       margin-top: 20px;
       background: rgba(0,180,216,0.1);
       border: 1px solid rgba(0,180,216,0.2);
-      border-radius: 12px;
-      padding: 12px 16px;
+      border-radius: 12px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .bid-icon { font-size: 18px; }
+    .bid-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--turquoise); }
+    .bid-value { font-size: 14px; font-weight: 700; color: var(--white); letter-spacing: .05em; }
+
+    /* ====== TRUST BADGES ====== */
+    .trust-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .trust-badge {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .booking-id-badge .bid-icon { font-size: 18px; }
-    .booking-id-badge .bid-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--turquoise);
+    .trust-badge-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      line-height: 1;
     }
-    .booking-id-badge .bid-value {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: .05em;
-    }
-
-    .trust-badges {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-    }
-    .trust-item span { font-size: 14px; }
+    .trust-badge-text { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .trust-badge-text strong { display: block; color: var(--white); font-size: 12px; }
+    .trust-badge.green { border-color: rgba(34,197,94,0.2); background: rgba(34,197,94,0.05); }
+    .trust-badge.gold { border-color: rgba(255,209,102,0.2); background: rgba(255,209,102,0.05); }
 
     /* ====== PAYMENT PANEL (RIGHT) ====== */
     .payment-panel {
@@ -276,154 +255,209 @@
     }
     .payment-header-title {
       font-family: 'Lora', serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
+      font-size: 19px; font-weight: 700; color: var(--white); margin-bottom: 4px;
     }
-    .payment-header-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-    }
+    .payment-header-sub { font-size: 13px; color: rgba(255,255,255,0.5); }
     .payment-methods-preview {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 12px;
-      flex-wrap: wrap;
+      display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap;
     }
     .pm-chip {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7);
     }
     .pm-chip.featured {
-      background: rgba(255,209,102,0.12);
-      border-color: rgba(255,209,102,0.25);
-      color: var(--gold);
+      background: rgba(255,209,102,0.12); border-color: rgba(255,209,102,0.25); color: var(--gold);
     }
 
-    /* Loading / iframe states */
-    .payment-iframe-wrap {
-      position: relative;
-      min-height: 600px;
-      background: #f9fafb;
-    }
+    /* iframe */
+    .payment-iframe-wrap { position: relative; min-height: 600px; background: #f9fafb; }
     .payment-loading {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      background: #f9fafb;
-      z-index: 2;
-      transition: opacity .3s;
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      background: #f9fafb; z-index: 2; transition: opacity .3s;
     }
     .payment-loading.hidden { opacity: 0; pointer-events: none; }
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(13,27,42,0.1);
-      border-top-color: var(--coral);
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
+      width: 40px; height: 40px;
+      border: 3px solid rgba(13,27,42,0.1); border-top-color: var(--coral);
+      border-radius: 50%; animation: spin .8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .payment-loading p {
-      font-size: 13px;
-      color: var(--light-gray);
-      font-weight: 500;
-    }
+    .payment-loading p { font-size: 13px; color: var(--light-gray); font-weight: 500; }
+    .payment-iframe { width: 100%; min-height: 700px; border: none; display: block; }
 
-    .payment-iframe {
-      width: 100%;
-      min-height: 700px;
-      border: none;
-      display: block;
-    }
-
-    /* Fallback redirect button */
-    .payment-fallback {
-      padding: 28px;
-      text-align: center;
-      display: none;
-    }
+    /* Fallback */
+    .payment-fallback { padding: 28px; text-align: center; display: none; }
     .btn-pay {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--cta-gradient);
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 16px 32px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      width: 100%;
-      letter-spacing: .04em;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--cta-gradient); color: var(--white);
+      font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700;
+      padding: 16px 32px; border-radius: 50px; border: none; cursor: pointer; text-decoration: none;
+      width: 100%; letter-spacing: .04em;
       box-shadow: 0 8px 24px rgba(255,90,95,0.35);
       transition: transform .15s, box-shadow .15s;
     }
-    .btn-pay:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(255,90,95,0.45);
-    }
+    .btn-pay:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,90,95,0.45); }
     .btn-pay-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--body-mid);
-      font-family: 'Poppins', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 50px;
-      border: 1.5px solid rgba(55,65,81,0.25);
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 12px;
-      width: 100%;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: transparent; color: var(--body-mid);
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600;
+      padding: 12px 24px; border-radius: 50px; border: 1.5px solid rgba(55,65,81,0.25);
+      cursor: pointer; text-decoration: none; margin-top: 12px; width: 100%;
       transition: border-color .15s, color .15s;
     }
     .btn-pay-secondary:hover { border-color: var(--coral); color: var(--coral); }
 
-    /* ====== ERROR / MISSING STATE ====== */
-    .error-state {
-      max-width: 500px;
-      margin: 80px auto;
+    /* ====== REVIEWS SECTION ====== */
+    .reviews-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .reviews-header {
       text-align: center;
-      padding: 0 24px;
+      margin-bottom: 32px;
     }
-    .error-state h2 {
+    .reviews-header h2 {
       font-family: 'Lora', serif;
-      font-size: 26px;
+      font-size: 24px;
+      font-weight: 700;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
-    .error-state p { color: rgba(255,255,255,0.55); margin-bottom: 24px; }
-    .error-state a {
-      color: var(--coral);
+    .reviews-header p { font-size: 14px; color: rgba(255,255,255,0.45); }
+    .google-rating-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 8px 20px;
+      margin-bottom: 32px;
+    }
+    .google-g {
+      width: 22px; height: 22px;
+      background: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #4285F4;
+      flex-shrink: 0;
+    }
+    .google-rating-row .stars { color: #fbbc04; font-size: 15px; letter-spacing: 1px; }
+    .google-rating-row .rating-num { font-size: 14px; font-weight: 700; color: var(--white); }
+    .google-rating-row .rating-count { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+      transition: border-color .2s, transform .2s;
+    }
+    .review-card:hover { border-color: rgba(255,209,102,0.2); transform: translateY(-3px); }
+    .review-card-top {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .reviewer-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--cta-gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 700; color: white; flex-shrink: 0;
+      text-transform: uppercase;
+    }
+    .reviewer-name { font-size: 14px; font-weight: 700; color: var(--white); }
+    .reviewer-meta {
+      display: flex; align-items: center; gap: 6px; margin-top: 2px;
+    }
+    .reviewer-stars { color: #fbbc04; font-size: 12px; letter-spacing: 1px; }
+    .reviewer-date { font-size: 11px; color: rgba(255,255,255,0.3); }
+    .review-text {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+    }
+    .review-card-footer {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .google-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; color: rgba(255,255,255,0.3);
+    }
+    .google-badge .g { font-weight: 700; color: #4285F4; }
+
+    /* ====== EXPIRY MODAL ====== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .modal-overlay.show { opacity: 1; pointer-events: all; }
+    .modal-card {
+      background: #121f2e;
+      border: 1px solid rgba(255,90,95,0.3);
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      animation: modal-in .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modal-in {
+      from { transform: scale(0.85) translateY(20px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-icon { font-size: 48px; margin-bottom: 16px; }
+    .modal-title {
+      font-family: 'Lora', serif;
+      font-size: 24px; font-weight: 700; color: var(--white);
+      margin-bottom: 12px; line-height: 1.3;
+    }
+    .modal-body { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 28px; }
+    .modal-body strong { color: var(--white); }
+    .modal-btn {
+      display: block; width: 100%;
+      background: var(--cta-gradient);
+      color: white; font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 700;
+      padding: 16px 28px; border-radius: 50px; border: none;
+      cursor: pointer; text-decoration: none;
+      letter-spacing: .04em;
+      box-shadow: 0 8px 24px rgba(255,90,95,0.4);
+      transition: transform .15s;
+    }
+    .modal-btn:hover { transform: translateY(-2px); }
+    .modal-secondary {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
       text-decoration: none;
-      font-weight: 600;
+      cursor: pointer;
     }
+    .modal-secondary:hover { color: rgba(255,255,255,0.6); }
+
+    /* ====== ERROR STATE ====== */
+    .error-state { max-width: 500px; margin: 80px auto; text-align: center; padding: 0 24px; }
+    .error-state h2 { font-family: 'Lora', serif; font-size: 26px; color: var(--white); margin-bottom: 12px; }
+    .error-state p { color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .error-state a { color: var(--coral); text-decoration: none; font-weight: 600; }
 
     /* ====== FOOTER ====== */
     .checkout-footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
+      text-align: center; padding: 24px; font-size: 12px;
       color: rgba(255,255,255,0.25);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
@@ -431,6 +465,19 @@
   </style>
 </head>
 <body>
+
+  <!-- EXPIRY MODAL -->
+  <div class="modal-overlay" id="expiry-modal">
+    <div class="modal-card">
+      <div class="modal-icon">⏳</div>
+      <div class="modal-title">We're still holding your spot!</div>
+      <div class="modal-body">
+        Your reservation window has expired, but <strong>your place is still in line</strong>. Complete your payment now before we release your cabin to the next traveler.
+      </div>
+      <a href="#" id="modal-pay-btn" class="modal-btn">🔒 Complete My Payment Now →</a>
+      <a href="book.html" class="modal-secondary">Start a new booking instead</a>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav class="nav">
@@ -443,23 +490,22 @@
 
   <!-- PROGRESS -->
   <div class="progress-bar">
-    <div class="progress-step done">
-      <div class="progress-dot">✓</div>
-      <span>Guests</span>
-    </div>
+    <div class="progress-step done"><div class="progress-dot">✓</div><span>Guests</span></div>
     <div class="progress-line done"></div>
-    <div class="progress-step done">
-      <div class="progress-dot">✓</div>
-      <span>Review</span>
-    </div>
+    <div class="progress-step done"><div class="progress-dot">✓</div><span>Review</span></div>
     <div class="progress-line done"></div>
-    <div class="progress-step active">
-      <div class="progress-dot">3</div>
-      <span>Payment</span>
+    <div class="progress-step active"><div class="progress-dot">3</div><span>Payment</span></div>
+  </div>
+
+  <!-- RESERVATION TIMER BANNER -->
+  <div class="timer-banner" id="timer-banner">
+    <div class="timer-pulse"></div>
+    <div class="timer-text">
+      Your cabin is reserved — complete payment within <span class="timer-count" id="timer-display">15:00</span>
     </div>
   </div>
 
-  <!-- ERROR STATE (shown if URL params missing) -->
+  <!-- ERROR STATE -->
   <div class="error-state" id="error-state" style="display:none;">
     <h2>Session expired</h2>
     <p>We couldn't find your booking details. Please start over from the booking page.</p>
@@ -481,9 +527,7 @@
         </div>
       </div>
 
-      <div id="summary-rows">
-        <!-- Populated by JS -->
-      </div>
+      <div id="summary-rows"><!-- Populated by JS --></div>
 
       <hr class="summary-divider">
 
@@ -501,15 +545,33 @@
         </div>
       </div>
 
-      <div class="trust-badges">
-        <div class="trust-item"><span>🔒</span> 256-bit SSL encrypted payment</div>
-        <div class="trust-item"><span>✅</span> Deposit secures your cabin immediately</div>
-        <div class="trust-item"><span>📄</span> Full terms at <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:underline;">gonwander.com/terms</a></div>
+      <!-- TRUST BADGES GRID -->
+      <div class="trust-grid">
+        <div class="trust-badge green">
+          <div class="trust-badge-icon">🔒</div>
+          <div class="trust-badge-text"><strong>256-bit SSL</strong>Encrypted payment</div>
+        </div>
+        <div class="trust-badge gold">
+          <div class="trust-badge-icon">⭐</div>
+          <div class="trust-badge-text"><strong>4.9/5 Stars</strong>Google Reviews</div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✅</div>
+          <div class="trust-badge-text"><strong>Instant Confirm</strong>Cabin held immediately</div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">👥</div>
+          <div class="trust-badge-text"><strong>1,000+ Travelers</strong>Trust Go N' Wander</div>
+        </div>
+        <div class="trust-badge" style="grid-column: span 2;">
+          <div class="trust-badge-icon">🏢</div>
+          <div class="trust-badge-text"><strong>ASTA Member Agency</strong>American Society of Travel Advisors</div>
+        </div>
       </div>
     </div>
 
     <!-- RIGHT: PAYMENT -->
-    <div>
+    <div class="checkout-right">
       <div class="payment-panel">
         <div class="payment-header">
           <div class="payment-header-title">Complete Your Payment</div>
@@ -540,11 +602,8 @@
           ></iframe>
         </div>
 
-        <!-- Fallback if iframe is blocked -->
         <div class="payment-fallback" id="payment-fallback">
-          <a href="#" id="btn-pay-direct" class="btn-pay">
-            🔒 Complete Payment →
-          </a>
+          <a href="#" id="btn-pay-direct" class="btn-pay">🔒 Complete Payment →</a>
           <a href="book.html" class="btn-pay-secondary">← Edit booking</a>
         </div>
       </div>
@@ -557,14 +616,92 @@
     </div>
   </div>
 
+  <!-- REVIEWS SECTION -->
+  <div class="reviews-section" id="reviews-section" style="display:none;">
+    <div class="reviews-header">
+      <h2>What our travelers say</h2>
+      <p>Real reviews from real Go N' Wander guests</p>
+      <br>
+      <div class="google-rating-row">
+        <div class="google-g">G</div>
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.9</span>
+        <span class="rating-count">· 200+ Google Reviews</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#FF5A5F,#FF9A3C);">T</div>
+          <div>
+            <div class="reviewer-name">Tanya M.</div>
+            <div class="reviewer-meta">
+              <span class="reviewer-stars">★★★★★</span>
+              <span class="reviewer-date">March 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-text">"Go N' Wander made everything seamless — from booking to getting on that ship. The team was responsive, the prices were real, and the vibe on the cruise was EVERYTHING. Already booked for 2027 🌊"</div>
+        <div class="review-card-footer"><span class="google-badge"><span class="g">G</span>oogle Review</span></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#00B4D8,#0077B6);">D</div>
+          <div>
+            <div class="reviewer-name">Diego R.</div>
+            <div class="reviewer-meta">
+              <span class="reviewer-stars">★★★★★</span>
+              <span class="reviewer-date">January 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-text">"I was skeptical about booking through an agency but Merceades and the team were so professional. Got my booking ID instantly, payment was easy, and they answered every question I had. 10/10 experience."</div>
+        <div class="review-card-footer"><span class="google-badge"><span class="g">G</span>oogle Review</span></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#FFD166,#FF9A3C);">L</div>
+          <div>
+            <div class="reviewer-name">Lizbeth C.</div>
+            <div class="reviewer-meta">
+              <span class="reviewer-stars">★★★★★</span>
+              <span class="reviewer-date">November 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-text">"This was my first cruise EVER and I was nervous. Go N' Wander held my hand through every step. The payment plan made it affordable and the reminders kept me on track. Can't wait for the Latin Takeover!"</div>
+        <div class="review-card-footer"><span class="google-badge"><span class="g">G</span>oogle Review</span></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#7C3AED,#EC4899);">M</div>
+          <div>
+            <div class="reviewer-name">Marcus W.</div>
+            <div class="reviewer-meta">
+              <span class="reviewer-stars">★★★★★</span>
+              <span class="reviewer-date">October 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-text">"Brought a group of 8 — the booking process for everyone was super easy. Each person paid their own link, no confusion, no headaches. The cruise itself was fire. Already planning to bring 12 next year."</div>
+        <div class="review-card-footer"><span class="google-badge"><span class="g">G</span>oogle Review</span></div>
+      </div>
+
+    </div>
+  </div>
+
   <footer class="checkout-footer">
     <p>© 2027 Go N' Wander Travel Agency · Bridgeport, CT · <a href="mailto:info@gonwander.com">info@gonwander.com</a></p>
   </footer>
 
   <script>
-    // ====== CONSTANTS ======
     const DEPOSIT = 150;
     const SERVICE_FEE = 65;
+    const TIMER_DURATION = 15 * 60; // 15 minutes in seconds
 
     const CABIN_NAMES = {
       IB: 'Inside Cabin IB — Lower Deck',
@@ -573,12 +710,7 @@
       BA: 'Balcony Cabin BA — Higher Deck'
     };
 
-    const CABIN_BASE_PRICES = {
-      IB: 1347.05,
-      IA: 1375.55,
-      BB: 1586.15,
-      BA: 1611.65
-    };
+    const CABIN_BASE_PRICES = { IB: 1347.05, IA: 1375.55, BB: 1586.15, BA: 1611.65 };
 
     const PAYMENT_LINKS = {
       IB: {
@@ -601,14 +733,13 @@
 
     const PLAN_MONTHLY = { IB: 420.68, IA: 430.18, BB: 500.38, BA: 508.88 };
 
-    // ====== PARSE URL PARAMS ======
+    // ====== INIT ======
     (function init() {
       var p = new URLSearchParams(window.location.search);
-      var cabin   = p.get('cabin');
-      var method  = p.get('method'); // 'full' or 'plan'
-      var guests  = parseInt(p.get('guests')) || 1;
+      var cabin     = p.get('cabin');
+      var method    = p.get('method');
+      var guests    = parseInt(p.get('guests')) || 1;
       var bookingId = p.get('bid') || '';
-      var firstName = p.get('fn') || '';
 
       if (!cabin || !method || !PAYMENT_LINKS[cabin]) {
         document.getElementById('error-state').style.display = 'block';
@@ -616,14 +747,17 @@
       }
 
       document.getElementById('checkout-wrap').style.display = 'grid';
+      document.getElementById('reviews-section').style.display = 'block';
 
-      var basePrice = CABIN_BASE_PRICES[cabin] || 0;
-      var cabinName = CABIN_NAMES[cabin] || cabin;
-      var payUrl = PAYMENT_LINKS[cabin][method];
+      var basePrice  = CABIN_BASE_PRICES[cabin] || 0;
+      var cabinName  = CABIN_NAMES[cabin] || cabin;
+      var payUrl     = PAYMENT_LINKS[cabin][method];
 
-      // ====== BUILD SUMMARY ROWS ======
+      // Wire modal pay button
+      document.getElementById('modal-pay-btn').href = payUrl;
+
+      // Build summary
       var rows = '';
-
       rows += row(cabinName, '$' + basePrice.toLocaleString('en-US', {minimumFractionDigits:2}));
       rows += row('Gratuities', 'Included', 'included');
       rows += row('Taxes &amp; Port Fees', 'Included', 'included');
@@ -637,7 +771,7 @@
         rows += row('Payment Plan', '6 monthly payments', '');
         rows += row('Monthly Rate', '$' + monthly.toFixed(2) + '/mo per person', '');
         document.getElementById('total-label').textContent = 'Deposit Due Today';
-        document.getElementById('total-amount').textContent = '$' + (DEPOSIT).toFixed(2);
+        document.getElementById('total-amount').textContent = '$' + DEPOSIT.toFixed(2);
         document.getElementById('total-sub').textContent = 'Per person · Then $' + monthly.toFixed(2) + '/mo × 6 · Balance due April 1, 2027';
       } else {
         document.getElementById('total-label').textContent = 'Total Per Person';
@@ -648,48 +782,60 @@
       document.getElementById('summary-rows').innerHTML = rows;
       document.getElementById('booking-id-display').textContent = bookingId || '—';
 
-      // ====== LOAD PAYMENT IFRAME ======
-      // Try iframe first; detect if blocked and fall back to redirect button
-      var iframe = document.getElementById('payment-iframe');
-      var loading = document.getElementById('payment-loading');
+      // Load iframe
+      var iframe   = document.getElementById('payment-iframe');
+      var loading  = document.getElementById('payment-loading');
       var fallback = document.getElementById('payment-fallback');
       var btnDirect = document.getElementById('btn-pay-direct');
 
       btnDirect.href = payUrl;
-
-      // Attempt to load the payment link in iframe
       iframe.src = payUrl;
       iframe.style.display = 'block';
 
-      // Hide loading once iframe fires load event
-      iframe.addEventListener('load', function() {
-        loading.classList.add('hidden');
-        // Check if iframe content is accessible (same-origin check)
-        try {
-          // If cross-origin, this throws — which is fine, iframe is loaded
-          var _ = iframe.contentWindow.location.href;
-        } catch(e) {
-          // Cross-origin but loaded — show iframe, hide loading
-          loading.classList.add('hidden');
-        }
-      });
+      iframe.addEventListener('load', function() { loading.classList.add('hidden'); });
 
-      // Timeout fallback — if iframe doesn't load in 8s, show button
       var iframeTimeout = setTimeout(function() {
         if (!loading.classList.contains('hidden')) {
-          // iframe is taking too long — show fallback redirect button
           document.getElementById('iframe-wrap').style.display = 'none';
           fallback.style.display = 'block';
           loading.classList.add('hidden');
         }
       }, 8000);
 
-      iframe.addEventListener('load', function() {
-        clearTimeout(iframeTimeout);
-      });
+      iframe.addEventListener('load', function() { clearTimeout(iframeTimeout); });
 
+      // Start reservation countdown
+      startTimer(payUrl);
     })();
 
+    // ====== COUNTDOWN TIMER ======
+    function startTimer(payUrl) {
+      var remaining = TIMER_DURATION;
+      var display   = document.getElementById('timer-display');
+      var banner    = document.getElementById('timer-banner');
+      var modal     = document.getElementById('expiry-modal');
+
+      function tick() {
+        remaining--;
+        var mins = Math.floor(remaining / 60);
+        var secs = remaining % 60;
+        display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+
+        // Warning state when under 3 minutes
+        if (remaining <= 180) banner.classList.add('warning');
+
+        if (remaining <= 0) {
+          clearInterval(timerInterval);
+          display.textContent = '0:00';
+          // Show expiry modal
+          modal.classList.add('show');
+        }
+      }
+
+      var timerInterval = setInterval(tick, 1000);
+    }
+
+    // ====== HELPERS ======
     function row(label, value, cls) {
       return '<div class="detail-row">'
         + '<span class="detail-label">' + label + '</span>'
